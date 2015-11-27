@@ -4,6 +4,11 @@
 	height: 600px;
 	margin: auto;
 }
+#watcontainer {
+    overflow: hidden;
+    width: 100%;
+    height: 700px;
+}
 
 input {
     display: inline-block;
