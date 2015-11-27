@@ -1,0 +1,31 @@
+application: wpi-majortracking
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /stylesheets
+  static_dir: stylesheets
+
+- url: /signup 
+  script: WPIMajorTracking.app
+  secure: always
+
+- url: /login
+  script: WPIMajorTracking.app
+  secure: always
+
+- url: /forgot
+  script: WPIMajorTracking.app
+  secure: always
+
+- url: .* 
+  script: WPIMajorTracking.app
+
+
+libraries:
+- name: webapp2
+  version: latest
+- name: ssl
+  version: latest
