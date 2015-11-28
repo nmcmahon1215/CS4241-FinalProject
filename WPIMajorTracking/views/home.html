@@ -2,15 +2,18 @@
 
 {% block maincontent %}
 <h1>WPI Major Tracking Prototype</h1>
-<h2>Useful Links</h2>
-<li><a href="https://developers.google.com/appengine/docs/python/config/appconfig#Secure_URLs">Secure URLs</a></li>
 
-<p>Login or register</p>
-<form action="/login">
-	<input id="loginButton" type="submit" value="Login">
-</form>
-<form action="/signup">
-	<input id="registerButton" type="submit" value="Register">
-</form>
-
+<p>Insert something about what the WPI Major Tracking tool is here</p>
+<div id="formContainer">
+	<form action="/login">
+		<div>
+			<input id="loginButton" type="submit" value="Login">
+		</div>
+	</form>
+	<form action="/signup">
+		<div>
+			<input id="registerButton" type="submit" value="Register">
+		</div>
+	</form>
+</div>
 {% endblock %}

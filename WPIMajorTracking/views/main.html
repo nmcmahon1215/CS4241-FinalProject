@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>{% block title %}User accounts demo{% endblock %}</title>
+    <title>{% block title %}WPI Major Tracking Prototype{% endblock %}</title>
     <link rel='stylesheet' href='/stylesheets/majorTracking.css'>
   </head>
 
@@ -14,7 +14,7 @@
     {% endblock %}
   </div>
 
-  <div>
+  <div style="clear: right;">
     <footer>
       <hr/>
       <p>
@@ -29,6 +29,8 @@
         <a href="/signup">New user</a>
         |
         <a href="/authenticated">Secured page</a> (you can see this after login)
+        |
+        <a href="https://developers.google.com/appengine/docs/python/config/appconfig#Secure_URLs" target="_blank">Secure URLs</a>
       </p>
     </footer>
   </div>
@@ -36,3 +38,22 @@
 
   </body>
 </html>
+
+<script>
+
+function validateEmail() {
+  var emailText = document.getElementById("emailText").value;
+  var submitButton = document.getElementById("createUserBtn");
+  if (IsEmail(emailText)) {
+    submitButton.disabled = false;
+  } else {
+    submitButton.disabled = true;
+  }
+}
+
+function IsEmail(email) {
+  var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  return regex.test(email);
+}
+
+</script>

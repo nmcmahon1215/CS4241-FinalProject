@@ -1,3 +1,13 @@
+#formContainer form,
+#formContainer form div {
+    display: inline;
+}
+
+#formContainer input {
+    display: inline;
+    vertical-align: middle;
+}
+
 #watgrandma {
 	display: block;
 	width: 400px;
@@ -14,8 +24,11 @@ input {
     display: inline-block;
 }
 
-.signupInput {
+.inputLabel {
     display: block;
+    width: 270px;
+    text-align: right;
+    margin: 5px;
 }
 
 img {

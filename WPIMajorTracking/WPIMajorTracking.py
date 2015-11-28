@@ -3,11 +3,11 @@
 
 from google.appengine.ext.webapp import template
 from google.appengine.ext import ndb
+from google.appengine.api import mail
 
 import logging
 import os.path
 import webapp2
-import smtplib
 
 from webapp2_extras import auth
 from webapp2_extras import sessions
@@ -120,6 +120,7 @@ class SignupHandler(BaseHandler):
       unique_properties,
       email_address=email, name=name, password_raw=password,
       last_name=last_name, verified=False)
+
     if not user_data[0]: #user_data is a tuple
       self.display_message('Unable to create user for email %s because of \
         duplicate keys %s' % (user_name, user_data[1]))
@@ -133,21 +134,18 @@ class SignupHandler(BaseHandler):
     verification_url = self.uri_for('verification', type='v', user_id=user_id,
       signup_token=token, _full=True)
 
-    ####### NEED BILLING TO SEND EMAIL? ######
-    # to = email
-    # gmail_user = 'WPI.MajorTracking@gmail.com'
-    # gmail_pwd = 'WPImajortracking'
-    # smtpserver = smtplib.SMTP("smtp.gmail.com", 587)
-    # smtpserver.starttls()
-    # smtpserver.login(gmail_user, gmail_pwd)
-    # header = 'To:' + to + '\n' + 'From: ' + gmail_user + '\n' + 'Subject:Account Verification \n'
-    # email_msg = header + '\n Please verify your account by visiting: \n\n'
-    # email_msg += verification_url
-    # smtpserver.sendmail(gmail_user, to, email_msg)
-    # smtpserver.close()
+    receiverString = name + " " + last_name + "<" + email + ">";
+    email_body = "Please verify your accoount by going to this link: " + verification_url;
 
-    msg = 'Test Email, verification link: \
-           <a href="{url}">{url}</a>'
+    message = mail.EmailMessage(sender="<WPI.MajorTracking@gmail.com>",
+                                subject="Account Verification")
+    message.to = receiverString
+    message.body = email_body
+    message.send()
+
+    msg = 'Please check your e-mail for the verification link. \
+            TODO: put a button here to resend verifcation link.'
+    #.Test Email, verification link: \           <a href="{url}">{url}</a>'
 
     self.display_message(msg.format(url=verification_url))
 

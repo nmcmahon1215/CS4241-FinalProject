@@ -10,15 +10,18 @@
 
 {% endif %}
 
-<form class="form" action= "/login" method="POST">
-	<label for="username">Username</label>
-	<input type="text" value="{{ username }}" name="username"/>
-	<label for="password">Password</label>
-	<input type="password" name="password"/>
-	<button type="submit" class="btn">Login</button>
+<form class="form" style="width: 275px;" action= "/login" method="POST">
+	<label class="inputLabel" for="username">Username:
+		<input type="text" value="{{ username }}" name="username"/>
+	</label>
+	<label class="inputLabel" for="password">Password:
+		<input type="password" name="password"/>
+	</label>
+	<button type="submit" style="float:right" class="btn">Login</button>
 </form>
 
-<p><i>Forgot password currently not working</i></p>
+<br>
+<p style="clear:right;"><i>"Forgot password" functionality currently not working</i></p>
 <!--<a href="/forgot">Forgot password</a>-->
 
 
