@@ -135,7 +135,7 @@ class SignupHandler(BaseHandler):
       signup_token=token, _full=True)
 
     receiverString = name + " " + last_name + "<" + email + ">";
-    email_body = "Please verify your accoount by going to this link: " + verification_url;
+    email_body = """Hello new user, \n\n Please verify your account by going to this link: """ + verification_url;
 
     message = mail.EmailMessage(sender="<WPI.MajorTracking@gmail.com>",
                                 subject="Account Verification")
@@ -144,8 +144,7 @@ class SignupHandler(BaseHandler):
     message.send()
 
     msg = 'Please check your e-mail for the verification link. \
-            TODO: put a button here to resend verifcation link.'
-    #.Test Email, verification link: \           <a href="{url}">{url}</a>'
+            TODO: put a button here to resend verifcation link. Test here: ' + verification_url
 
     self.display_message(msg.format(url=verification_url))
 
@@ -168,8 +167,20 @@ class ForgotPasswordHandler(BaseHandler):
     verification_url = self.uri_for('verification', type='p', user_id=user_id,
       signup_token=token, _full=True)
 
-    msg = 'Send an email to user in order to reset their password. \
-          They will be able to do so by visiting <a href="{url}">{url}</a>'    
+    receiverString = user.name + " " + user.last_name + "<" + user.email_address + ">";
+    email_body = """Hello user, \n\n Please reset your password by going to: """ + verification_url;
+
+    message = mail.EmailMessage(sender="<WPI.MajorTracking@gmail.com>",
+                                subject="Reset Password")
+
+    message.to = receiverString
+    message.body = email_body
+    message.send()
+
+    msg = 'Please go check your email to reset your password. \
+          FOR DEVELOPERS: go here to reset: <a href="{url}">{url}</a>'  
+
+    self.display_message(msg.format(url=verification_url))
   
   def _serve_page(self, not_found=False):
     username = self.request.get('username')
@@ -231,7 +242,7 @@ class SetPasswordHandler(BaseHandler):
     old_token = self.request.get('t')
 
     if not password or password != self.request.get('confirm_password'):
-      self.display_message('passwords do not match')
+      self._serve_page(True)
       return
 
     user = self.user
@@ -241,7 +252,15 @@ class SetPasswordHandler(BaseHandler):
     # remove signup token, we don't want users to come back with an old link
     self.user_model.delete_signup_token(user.get_id(), old_token)
     
-    self.display_message('Password updated')
+    self.display_message('Password updated.')
+
+  def _serve_page(self, mismatch=False):
+    username = self.request.get('username')
+    params = {
+      'username': username,
+      'mismatch': mismatch
+    }
+    self.render_template('resetpassword.html', params)
 
 class LoginHandler(BaseHandler):
   def get(self):

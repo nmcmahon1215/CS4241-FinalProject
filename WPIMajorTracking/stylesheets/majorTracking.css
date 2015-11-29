@@ -20,6 +20,10 @@
     height: 700px;
 }
 
+.errorMsg {
+    color: red;
+}
+
 input {
     display: inline-block;
 }
