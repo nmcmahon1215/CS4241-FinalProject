@@ -4,14 +4,14 @@
 
 <h1>Recover password</h1>
 
-<p>Forgot your password? Click the link below to receive a link to recover your password.</p>
+<p>Forgot your password? Enter your email below to receive a link to recover your password.</p>
 
 {% if not_found %}
-    <strong>Not found!</strong> We could not found any user with the given username.
+    <strong>Not found!</strong> We could not found any user with the given email.
 {% endif %} 
 
 <form class="form" action= "/forgot" method="POST">
-	<input type="text" value="{{ username }}" name="username"/>
+	<input type="text" value="{{ email_address }}" name="email_address"/>
 	<input type="submit" value="Send password reset link"/>
 </form>
 

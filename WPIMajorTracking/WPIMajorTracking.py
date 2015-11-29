@@ -110,12 +110,12 @@ class SignupHandler(BaseHandler):
 
   def post(self):
     user_name = self.request.get('username')
-    email = self.request.get('email')
+    email = user_name
     name = self.request.get('name')
     password = self.request.get('password')
     last_name = self.request.get('lastname')
 
-    unique_properties = ['email_address']
+    unique_properties = None
     user_data = self.user_model.create_user(user_name,
       unique_properties,
       email_address=email, name=name, password_raw=password,
@@ -135,7 +135,7 @@ class SignupHandler(BaseHandler):
       signup_token=token, _full=True)
 
     receiverString = name + " " + last_name + "<" + email + ">";
-    email_body = """Hello new user, \n\n Please verify your account by going to this link: """ + verification_url;
+    email_body = """Hello new user, \n\nPlease verify your account by going to this link: """ + verification_url;
 
     message = mail.EmailMessage(sender="<WPI.MajorTracking@gmail.com>",
                                 subject="Account Verification")
@@ -144,7 +144,7 @@ class SignupHandler(BaseHandler):
     message.send()
 
     msg = 'Please check your e-mail for the verification link. \
-            TODO: put a button here to resend verifcation link. Test here: ' + verification_url
+            TODO: put a button here to resend verifcation link. Test here: <a href="{url}">{url}</a>'
 
     self.display_message(msg.format(url=verification_url))
 
@@ -153,11 +153,11 @@ class ForgotPasswordHandler(BaseHandler):
     self._serve_page()
 
   def post(self):
-    username = self.request.get('username')
+    email_address = self.request.get('email_address')
 
-    user = self.user_model.get_by_auth_id(username)
+    user = self.user_model.get_by_auth_id(email_address)
     if not user:
-      logging.info('Could not find any user entry for username %s', username)
+      logging.info('Could not find any user entry for email address %s', email_address)
       self._serve_page(not_found=True)
       return
 
@@ -168,7 +168,7 @@ class ForgotPasswordHandler(BaseHandler):
       signup_token=token, _full=True)
 
     receiverString = user.name + " " + user.last_name + "<" + user.email_address + ">";
-    email_body = """Hello user, \n\n Please reset your password by going to: """ + verification_url;
+    email_body = """Hello user, \n\nPlease reset your password by going to: """ + verification_url;
 
     message = mail.EmailMessage(sender="<WPI.MajorTracking@gmail.com>",
                                 subject="Reset Password")

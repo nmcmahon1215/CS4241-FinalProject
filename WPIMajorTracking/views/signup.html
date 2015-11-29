@@ -6,12 +6,12 @@
 
 <h1>Register a new user</h1>
 <form style="width: 275px;" action="/signup" method="POST">
-	<label class="inputLabel" for="username">Username:
-		<input type="text" name="username" required/>
+	<label class="inputLabel" for="username">Email:
+		<input type="text" id="emailText" name="username" onkeyup="validateEmail()" required/>
 	</label>
-	<label class="inputLabel" for="email">Email:
+	<!-- <label class="inputLabel" for="email">Email:
 		<input type="text" id="emailText" name="email" onkeyup="validateEmail()" required/>
-	</label>
+	</label> -->
 	<label class="inputLabel" for="password">Password:
 		<input type="password" name="password" required/>
 	</label>
@@ -21,7 +21,7 @@
 	<label class="inputLabel" for="lastname">Last Name:
 		<input type="text" name="lastname" required/>
 	</label>
-	<input type="submit" style="float:right;" value="Create user" id="createUserBtn"/>
+	<input type="submit" style="float:right;" value="Create user" id="createUserBtn" disabled/>
 	<br>
 </form>
 
