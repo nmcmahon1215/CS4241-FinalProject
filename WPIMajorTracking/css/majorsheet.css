@@ -1,0 +1,23 @@
+#title {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 40px;
+	text-align: center;
+}
+
+#whitespace {
+	color: white;
+	float: right;
+}
+
+#username {
+	font-style: italic;
+	float: right;	
+}
+
+#logout {
+	float: right;
+}
+
+#logout:hover {
+	color: red;
+}
