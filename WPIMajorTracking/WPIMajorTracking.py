@@ -114,12 +114,13 @@ class SignupHandler(BaseHandler):
     name = self.request.get('name')
     password = self.request.get('password')
     last_name = self.request.get('lastname')
-
+    major = self.request.get_all('major')
+    
     unique_properties = None
     user_data = self.user_model.create_user(user_name,
       unique_properties,
       email_address=email, name=name, password_raw=password,
-      last_name=last_name, verified=False)
+      last_name=last_name, major=major[0], verified=False)
 
     if not user_data[0]: #user_data is a tuple
       self.display_message('Unable to create user for email %s because of \
@@ -267,20 +268,20 @@ class LoginHandler(BaseHandler):
     self._serve_page()
 
   def post(self):
-    username = self.request.get('username')
+    email_address = self.request.get('email_address')
     password = self.request.get('password')
     try:
-      u = self.auth.get_user_by_password(username, password, remember=True,
+      u = self.auth.get_user_by_password(email_address, password, remember=True,
         save_session=True)
       self.redirect(self.uri_for('home'))
     except (InvalidAuthIdError, InvalidPasswordError) as e:
-      logging.info('Login failed for user %s because of %s', username, type(e))
+      logging.info('Login failed for user %s because of %s', email_address, type(e))
       self._serve_page(True)
 
   def _serve_page(self, failed=False):
-    username = self.request.get('username')
+    email_address = self.request.get('email_address')
     params = {
-      'username': username,
+      'email_address': email_address,
       'failed': failed
     }
     self.render_template('login.html', params)
