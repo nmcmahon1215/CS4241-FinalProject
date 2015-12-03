@@ -5,8 +5,8 @@ api_version: 1
 threadsafe: yes
 
 handlers:
-- url: /stylesheets
-  static_dir: stylesheets
+- url: /css
+  static_dir: css
 
 - url: /signup 
   script: WPIMajorTracking.app
