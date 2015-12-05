@@ -78,7 +78,11 @@ class BaseHandler(webapp2.RequestHandler):
       params = {}
     user = self.user_info
     params['user'] = user
-    path = os.path.join(os.path.dirname(__file__), 'views', view_filename)
+    if "directory" in params:
+      directory = params['directory']
+    else:
+      directory = 'views'
+    path = os.path.join(os.path.dirname(__file__), directory, view_filename)
     self.response.out.write(template.render(path, params))
 
   def display_message(self, message):
@@ -105,7 +109,7 @@ class MainHandler(BaseHandler):
     filePath = self.request.path[8:]
     if filePath == "":
         filePath = "home.html"
-    
+
     self.render_template(filePath)
 
 class SignupHandler(BaseHandler):
@@ -295,10 +299,14 @@ class LogoutHandler(BaseHandler):
     self.auth.unset_session()
     self.redirect(self.uri_for('home'))
 
-class AuthenticatedHandler(BaseHandler):
+class SecuredHandler(BaseHandler):
   @user_required
-  def get(self):
-    self.render_template('authenticated.html')
+  def get(self, *args, **kwargs):
+    filePath = self.request.path[9:]
+    if filePath == "":
+        filePath = "home.html"
+
+    self.render_template(filePath, { 'directory': 'secured' })
 
 config = {
   'webapp2_extras.auth': {
@@ -311,16 +319,16 @@ config = {
 }
 
 app = webapp2.WSGIApplication([
-    webapp2.Route('/', webapp2.RedirectHandler, defaults={'_uri': '/public'}),
-    webapp2.Route(r'/public<:.*>', MainHandler, name='home'),
-    webapp2.Route('/signup', SignupHandler),
-    webapp2.Route('/<type:v|p>/<user_id:\d+>-<signup_token:.+>',
+    webapp2.Route('/', webapp2.RedirectHandler, defaults={'_uri': '/public'}, name='home'),
+    webapp2.Route(r'/public<:.*>', MainHandler),
+    webapp2.Route('/api/signup', SignupHandler),
+    webapp2.Route('/api/<type:v|p>/<user_id:\d+>-<signup_token:.+>',
       handler=VerificationHandler, name='verification'),
-    webapp2.Route('/password', SetPasswordHandler),
-    webapp2.Route('/login', LoginHandler, name='login'),
-    webapp2.Route('/logout', LogoutHandler, name='logout'),
-    webapp2.Route('/forgot', ForgotPasswordHandler, name='forgot'),
-    webapp2.Route('/authenticated', AuthenticatedHandler, name='authenticated')
+    webapp2.Route('/api/password', SetPasswordHandler),
+    webapp2.Route('/api/login', LoginHandler, name='login'),
+    webapp2.Route('/api/forgot', ForgotPasswordHandler, name='forgot'),
+    webapp2.Route('/api/logout', LogoutHandler, name='logout'),
+    webapp2.Route(r'/secured<:.*>', SecuredHandler, name='secured')
 ], debug=True, config=config)
 
 logging.getLogger().setLevel(logging.DEBUG)

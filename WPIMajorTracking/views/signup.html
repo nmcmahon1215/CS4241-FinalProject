@@ -5,7 +5,7 @@
 {% block maincontent %}
 
 <h1>Register a new user</h1>
-<form style="width: 275px;" action="/signup" method="POST">
+<form style="width: 275px;" action="/api/signup" method="POST">
 	<label class="inputLabel" for="username">Email:
 		<input type="text" id="emailText" name="username" autocomplete="off" autocapitalize="off" autocorrect="off" onkeyup="validateEmail()" required/>
 	</label>

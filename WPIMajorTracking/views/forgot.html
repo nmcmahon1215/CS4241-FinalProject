@@ -8,9 +8,9 @@
 
 {% if not_found %}
     <strong>Not found!</strong> We could not found any user with the given email.
-{% endif %} 
+{% endif %}
 
-<form class="form" action= "/forgot" method="POST">
+<form class="form" action= "/api/forgot" method="POST">
 	<input type="text" value="{{ email_address }}" name="email_address"/>
 	<input type="submit" value="Send password reset link"/>
 </form>
