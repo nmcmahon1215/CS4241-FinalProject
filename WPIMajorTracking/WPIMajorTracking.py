@@ -65,7 +65,7 @@ class BaseHandler(webapp2.RequestHandler):
     """Returns the implementation of the user model.
 
     It is consistent with config['webapp2_extras.auth']['user_model'], if set.
-    """    
+    """
     return self.auth.store.user_model
 
   @webapp2.cached_property
@@ -102,7 +102,11 @@ class BaseHandler(webapp2.RequestHandler):
 
 class MainHandler(BaseHandler):
   def get(self, *args, **kwargs):
-    self.render_template('home.html')
+    filePath = self.request.path[8:]
+    if filePath == "":
+        filePath = "home.html"
+    
+    self.render_template(filePath)
 
 class SignupHandler(BaseHandler):
   def get(self):
@@ -115,7 +119,7 @@ class SignupHandler(BaseHandler):
     password = self.request.get('password')
     last_name = self.request.get('lastname')
     major = self.request.get_all('major')
-    
+
     unique_properties = None
     user_data = self.user_model.create_user(user_name,
       unique_properties,
@@ -126,7 +130,7 @@ class SignupHandler(BaseHandler):
       self.display_message('Unable to create user for email %s because of \
         duplicate keys %s' % (user_name, user_data[1]))
       return
-    
+
     user = user_data[1]
     user_id = user.get_id()
 
@@ -179,10 +183,10 @@ class ForgotPasswordHandler(BaseHandler):
     message.send()
 
     msg = 'Please go check your email to reset your password. \
-          FOR DEVELOPERS: go here to reset: <a href="{url}">{url}</a>'  
+          FOR DEVELOPERS: go here to reset: <a href="{url}">{url}</a>'
 
     self.display_message(msg.format(url=verification_url))
-  
+
   def _serve_page(self, not_found=False):
     username = self.request.get('username')
     params = {
@@ -210,7 +214,7 @@ class VerificationHandler(BaseHandler):
       logging.info('Could not find any user with id "%s" signup token "%s"',
         user_id, signup_token)
       self.abort(404)
-    
+
     # store user data in the session
     self.auth.set_session(self.auth.store.user_to_dict(user), remember=True)
 
@@ -252,7 +256,7 @@ class SetPasswordHandler(BaseHandler):
 
     # remove signup token, we don't want users to come back with an old link
     self.user_model.delete_signup_token(user.get_id(), old_token)
-    
+
     self.display_message('Password updated.')
 
   def _serve_page(self, mismatch=False):
@@ -307,7 +311,8 @@ config = {
 }
 
 app = webapp2.WSGIApplication([
-    webapp2.Route(r'<:.*>', MainHandler, name='home'),
+    webapp2.Route('/', webapp2.RedirectHandler, defaults={'_uri': '/public'}),
+    webapp2.Route(r'/public<:.*>', MainHandler, name='home'),
     webapp2.Route('/signup', SignupHandler),
     webapp2.Route('/<type:v|p>/<user_id:\d+>-<signup_token:.+>',
       handler=VerificationHandler, name='verification'),
