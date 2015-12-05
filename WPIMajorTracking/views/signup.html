@@ -7,7 +7,7 @@
 <h1>Register a new user</h1>
 <form style="width: 275px;" action="/signup" method="POST">
 	<label class="inputLabel" for="username">Email:
-		<input type="text" id="emailText" name="username" onkeyup="validateEmail()" required/>
+		<input type="text" id="emailText" name="username" autocomplete="off" autocapitalize="off" autocorrect="off" onkeyup="validateEmail()" required/>
 	</label>
 	<label class="inputLabel" for="password">Password:
 		<input type="password" name="password" required/>
@@ -18,10 +18,10 @@
 		</select>
 	</label>
 	<label class="inputLabel" for="name">First Name:
-		<input type="text" name="name" required/>
+		<input type="text" name="name" autocomplete="off" autocapitalize="off" autocorrect="off" required/>
 	</label>
 	<label class="inputLabel" for="lastname">Last Name:
-		<input type="text" name="lastname" required/>
+		<input type="text" name="lastname" autocomplete="off" autocapitalize="off" autocorrect="off" required/>
 	</label>
 	<input type="submit" style="float:right;" value="Create user" id="createUserBtn" disabled/>
 	<br>
