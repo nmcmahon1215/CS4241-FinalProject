@@ -5,15 +5,34 @@
 
 <p>Insert something about what the WPI Major Tracking tool is here</p>
 <div id="formContainer">
-	<form action="/public/login.html">
-		<div>
-			<input id="loginButton" type="submit" value="Login">
-		</div>
-	</form>
 	<form action="/public/signup.html">
 		<div>
 			<input id="registerButton" type="submit" value="Register">
 		</div>
 	</form>
+	<div id='login' class='center-block center-form'>
+		{% if failed %}
+
+		    <strong>Login failed!</strong> Check your credentials and try again.
+
+		{% endif %}
+
+		<form class="form" action= "/api/login" method="POST">
+			<div class='form-group'>
+				<label for="email_address">Email:</label>
+				<input type="email" class='form-control' value="{{ email_address }}" name="email_address"/>
+			</div>
+
+			<div class='form-group'>
+				<label for="password">Password:</label>
+				<input type="password" class='form-control' name="password"/>
+			</div>
+
+			<button type="submit" style="margin: 15px 0px 15px 0px;" class='btn btn-primary'>Login</button>
+		</form>
+
+		<br>
+		<a href="/forgot">Forgot your password?</a>
+	</div>
 </div>
 {% endblock %}
