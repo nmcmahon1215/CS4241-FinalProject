@@ -8,7 +8,10 @@ handlers:
 - url: /css
   static_dir: css
 
-- url: /signup 
+- url: /libs
+  static_dir: libs
+  
+- url: /signup
   script: WPIMajorTracking.app
   secure: always
 
@@ -20,7 +23,7 @@ handlers:
   script: WPIMajorTracking.app
   secure: always
 
-- url: .* 
+- url: .*
   script: WPIMajorTracking.app
 
 
