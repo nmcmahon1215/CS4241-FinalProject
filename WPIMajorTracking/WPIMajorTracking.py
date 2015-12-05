@@ -101,7 +101,7 @@ class BaseHandler(webapp2.RequestHandler):
           self.session_store.save_sessions(self.response)
 
 class MainHandler(BaseHandler):
-  def get(self):
+  def get(self, *args, **kwargs):
     self.render_template('home.html')
 
 class SignupHandler(BaseHandler):
@@ -307,7 +307,7 @@ config = {
 }
 
 app = webapp2.WSGIApplication([
-    webapp2.Route('/', MainHandler, name='home'),
+    webapp2.Route(r'<:.*>', MainHandler, name='home'),
     webapp2.Route('/signup', SignupHandler),
     webapp2.Route('/<type:v|p>/<user_id:\d+>-<signup_token:.+>',
       handler=VerificationHandler, name='verification'),
