@@ -14,29 +14,6 @@
 
     {% endblock %}
   </div>
-
-  <div style="clear: right;">
-    <footer>
-      <hr/>
-      <p>
-        {% if not user %}
-          <a href="/public/login.html">Login</a>
-        {% else %}
-          Logged in as <span style="background-color: OldLace">{{ user.name }}</span> | <a href="/api/logout">Logout</a>
-        {% endif %}
-        |
-        <a href="/">Home</a>
-        |
-        <a href="/public/signup.html">New user</a>
-        |
-        <a href="/secured/authenticated.html">Secured page</a> (you can see this after login)
-        |
-        <a href="https://developers.google.com/appengine/docs/python/config/appconfig#Secure_URLs" target="_blank">Secure URLs</a>
-      </p>
-    </footer>
-  </div>
-
-
   </body>
 </html>
 
