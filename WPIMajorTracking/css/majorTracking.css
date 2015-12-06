@@ -17,6 +17,16 @@
     height: 700px;
 }
 
+a {
+  color: lightcoral;
+  text-decoration: none;
+}
+
+a:hover {
+  color: orangered;
+  text-decoration: underline;
+}
+
 h1 {
   font-family: 'Coda', "Arial";
 }
