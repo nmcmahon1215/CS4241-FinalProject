@@ -292,7 +292,7 @@ class LoginHandler(BaseHandler):
       'email_address': email_address,
       'failed': failed
     }
-    self.render_template('login.html', params)
+    self.render_template('home.html', params)
 
 class LogoutHandler(BaseHandler):
   def get(self):
