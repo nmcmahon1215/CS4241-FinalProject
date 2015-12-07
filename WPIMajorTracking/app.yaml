@@ -10,7 +10,7 @@ handlers:
 
 - url: /libs
   static_dir: libs
-  
+
 - url: /signup
   script: WPIMajorTracking.app
   secure: always
@@ -31,4 +31,6 @@ libraries:
 - name: webapp2
   version: latest
 - name: ssl
+  version: latest
+- name: jinja2
   version: latest

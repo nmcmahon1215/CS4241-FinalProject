@@ -1,19 +1,25 @@
 #Skeleton from https://github.com/abahgat/webapp2-user-accounts
 #!/usr/bin/env python
 
-from google.appengine.ext.webapp import template
 from google.appengine.ext import ndb
 from google.appengine.api import mail
 
 import logging
 import os.path
 import webapp2
+import jinja2
 
 from webapp2_extras import auth
 from webapp2_extras import sessions
 
 from webapp2_extras.auth import InvalidAuthIdError
 from webapp2_extras.auth import InvalidPasswordError
+
+
+JINJA_ENVIRONMENT = jinja2.Environment(
+    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
+    extensions=['jinja2.ext.autoescape'],
+    autoescape=True)
 
 def user_required(handler):
   """
@@ -82,8 +88,9 @@ class BaseHandler(webapp2.RequestHandler):
       directory = params['directory']
     else:
       directory = 'views'
-    path = os.path.join(os.path.dirname(__file__), directory, view_filename)
-    self.response.out.write(template.render(path, params))
+    path = os.path.join(directory, view_filename)
+    template = JINJA_ENVIRONMENT.get_template(path)
+    self.response.out.write(template.render(params))
 
   def display_message(self, message):
     """Utility function to display a template with a simple message."""
