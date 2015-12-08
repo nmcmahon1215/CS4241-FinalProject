@@ -296,7 +296,7 @@ class LoginHandler(BaseHandler):
     self._serve_page()
 
   def post(self):
-    email_address = self.request.get('email_address')
+    email_address = self.request.get('email_address').lower()
     password = self.request.get('password')
     try:
       u = self.auth.get_user_by_password(email_address, password, remember=True,
