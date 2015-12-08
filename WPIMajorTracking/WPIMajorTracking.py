@@ -270,9 +270,9 @@ class SetPasswordHandler(BaseHandler):
     self._serve_page(updated_password=True)
 
   def _serve_page(self, mismatch=False, updated_password=False):
-    username = self.request.get('username')
+    email_address = self.request.get('email_address')
     params = {
-      'username': username,
+      'email_address': email_address,
       'mismatch': mismatch,
       'updated_password': updated_password
     }

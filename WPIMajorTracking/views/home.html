@@ -11,11 +11,10 @@
 <div id="formContainer" class='center-form'>
 	<div id='login' class='center-block interaction-block'>
 		{% if failed %}
-
-		    <strong>Login failed!</strong> Check your credentials and try again.
-
+		 <strong>Login failed!</strong> Check your credentials and try again.
 		{% endif %}
 
+		{% if not user %}
 		<form class="form" action= "/api/login" method="POST">
 			<div class='form-group'>
 				<label for="email_address">Email:</label>
@@ -47,5 +46,11 @@
 				</div>
 			</form>
 		</div>
+		{% else %}
+		<h2>Hello, {{user.name}}!</h2>
+		<form action="/api/logout" method="get">
+			<input class='btn btn-margin btn-success' type='submit' value='Logout'/>
+		</form>
+		{% endif %}
 </div>
 {% endblock %}
