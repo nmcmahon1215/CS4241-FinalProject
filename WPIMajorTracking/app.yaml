@@ -11,6 +11,9 @@ handlers:
 - url: /libs
   static_dir: libs
 
+- url: /images
+  static_dir: images
+
 - url: /signup
   script: WPIMajorTracking.app
   secure: always
