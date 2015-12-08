@@ -39,13 +39,6 @@ input {
     display: inline-block;
 }
 
-.inputLabel {
-    display: block;
-    width: 270px;
-    text-align: right;
-    margin: 5px;
-}
-
 .center-form {
   width: 50%;
   position: absolute;
@@ -92,4 +85,10 @@ body {
 html {
   height: 100%;
   width: 100%;
+}
+
+label.required::after {
+  content:" *";
+  color: red;
+  font-size: 18px;
 }
