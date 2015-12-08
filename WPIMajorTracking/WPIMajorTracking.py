@@ -88,7 +88,7 @@ class BaseHandler(webapp2.RequestHandler):
       directory = params['directory']
     else:
       directory = 'views'
-    path = os.path.join(directory, view_filename)
+    path = "/".join([directory, view_filename])
     template = JINJA_ENVIRONMENT.get_template(path)
     self.response.out.write(template.render(params))
 
