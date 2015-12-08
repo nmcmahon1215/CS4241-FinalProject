@@ -121,25 +121,24 @@ class MainHandler(BaseHandler):
 
 class SignupHandler(BaseHandler):
   def get(self):
-    self.render_template('signup.html')
+    self._serve_page()
 
   def post(self):
-    user_name = self.request.get('username')
-    email = user_name
+    email = self.request.get('email_address').lower()
     name = self.request.get('name')
     password = self.request.get('password')
     last_name = self.request.get('lastname')
     major = self.request.get_all('major')
 
     unique_properties = None
-    user_data = self.user_model.create_user(user_name,
+    user_data = self.user_model.create_user(email,
       unique_properties,
       email_address=email, name=name, password_raw=password,
       last_name=last_name, major=major[0], verified=False)
 
     if not user_data[0]: #user_data is a tuple
       self.display_message('Unable to create user for email %s because of \
-        duplicate keys %s' % (user_name, user_data[1]))
+        duplicate keys %s' % (email, user_data[1]))
       return
 
     user = user_data[1]
@@ -159,17 +158,23 @@ class SignupHandler(BaseHandler):
     message.body = email_body
     message.send()
 
-    msg = 'Please check your e-mail for the verification link. \
-            TODO: put a button here to resend verifcation link. Test here: <a href="{url}">{url}</a>'
+    self._serve_page(email_sent=True, verification_url=verification_url)
 
-    self.display_message(msg.format(url=verification_url))
+  def _serve_page(self, email_sent=False, verification_url=''):
+    email_address = self.request.get('email_address')
+    params = {
+      'email_address': email_address,
+      'email_sent': email_sent,
+      'verification_url': verification_url
+    }
+    self.render_template('signup.html', params)
 
 class ForgotPasswordHandler(BaseHandler):
   def get(self):
     self._serve_page()
 
   def post(self):
-    email_address = self.request.get('email_address')
+    email_address = self.request.get('email_address').lower()
 
     user = self.user_model.get_by_auth_id(email_address)
     if not user:
@@ -196,9 +201,9 @@ class ForgotPasswordHandler(BaseHandler):
     self._serve_page(email_sent=True, verification_url=verification_url)
 
   def _serve_page(self, not_found=False, email_sent=False, verification_url=''):
-    username = self.request.get('username')
+    email_address = self.request.get('email_address')
     params = {
-      'username': username,
+      'email_address': email_address,
       'not_found': not_found,
       'email_sent': email_sent,
       'verification_url': verification_url
@@ -236,7 +241,7 @@ class VerificationHandler(BaseHandler):
         user.verified = True
         user.put()
 
-      self.display_message('User email address has been verified.')
+      self._serve_page(user_verified=True)
       return
     elif verification_type == 'p':
       # supply user to the page
@@ -248,6 +253,14 @@ class VerificationHandler(BaseHandler):
     else:
       logging.info('verification type not supported')
       self.abort(404)
+
+  def _serve_page(self, user_verified=False, email_sent=True):
+    email_address = self.request.get('email_address')
+    params = {
+      'user_verified': user_verified,
+      'email_sent': email_sent
+    }
+    self.render_template('signup.html', params)
 
 class SetPasswordHandler(BaseHandler):
 

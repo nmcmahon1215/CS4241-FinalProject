@@ -6,40 +6,51 @@
 
 <h1 class='header'>Register a new user</h1>
 <div id='login' class='center-block center-form interaction-block'>
-<form class='form' action="/api/signup" method="POST">
-	<div class='form-group'>
-		<label for="username" class="required">Email:</label>
-		<input type="email" class='form-control' id="emailText" name="username" autocomplete="off" autocapitalize="off" autocorrect="off" onkeyup="validateEmail()" placeholder="example@email.com" required/>
-	</div>
+	<form class='form' action="/api/signup" method="POST">
+		{% if not email_sent %}
+		<div class='form-group'>
+			<label for="email_address" class="required">Email:</label>
+			<input type="email" class='form-control' id="emailText" name="email_address" autocomplete="off" autocapitalize="off" autocorrect="off" onkeyup="validateEmail()" placeholder="example@email.com" required/>
+		</div>
 
-	<div class='form-group'>
-		<label for="password" class="required" >Password:</label>
-		<input class='form-control' type="password" name="password" id="passwordText" placeholder="Password" required/>
-	</div>
+		<div class='form-group'>
+			<label for="password" class="required" >Password:</label>
+			<input class='form-control' type="password" name="password" id="passwordText" placeholder="Password" required/>
+		</div>
 
-	<div class='form-group'>
-		<label for="password" class="required">Confirm Password:</label>
-		<input class='form-control' type="password" name="password" id="passwordRepeatText" placeholder="Confirm Password" required/>
-	</div>
+		<div class='form-group'>
+			<label for="password" class="required">Confirm Password:</label>
+			<input class='form-control' type="password" name="password" id="passwordRepeatText" placeholder="Confirm Password" required/>
+		</div>
 
-	<div class='form-group'>
-		<label for="major" class="required">Major:</label>
-		<select name="major" class='form-control'>
-			<option value="Computer Science">Computer Science</option>
-		</select>
-	</div>
+		<div class='form-group'>
+			<label for="major" class="required">Major:</label>
+			<select name="major" class='form-control'>
+				<option value="Computer Science">Computer Science</option>
+			</select>
+		</div>
 
-	<div class='form-group'>
-		<label for="name" class="required">First Name:</label>
-		<input type="text" class='form-control' name="name" autocomplete="off" autocapitalize="off" autocorrect="off" id="firstNameText" placeholder="First Name" required/>
-	</div>
+		<div class='form-group'>
+			<label for="name" class="required">First Name:</label>
+			<input type="text" class='form-control' name="name" autocomplete="off" autocapitalize="off" autocorrect="off" id="firstNameText" placeholder="First Name" required/>
+		</div>
 
-	<div class='form-group'>
-		<label for="lastname" class="required">Last Name:</label>
-		<input type="text" class='form-control' name="lastname" autocomplete="off" autocapitalize="off" autocorrect="off" id="lastNameText" placeholder="Last Name" required/>
-	</div>
+		<div class='form-group'>
+			<label for="lastname" class="required">Last Name:</label>
+			<input type="text" class='form-control' name="lastname" autocomplete="off" autocapitalize="off" autocorrect="off" id="lastNameText" placeholder="Last Name" required/>
+		</div>
+		<input type="submit" class='btn btn-margin btn-success' value="Create Account" id="createUserBtn" disabled/>
+		{% elif email_sent and not user_verified %}
+		<div>
+      		<p>Please go check your email for a link to verify your account.</p>
+      		<p>FOR DEVELOPERS: go here to verify: <a href="{{ verification_url }}">Verification Link</a> </p>      
+    	</div>
+    	{% endif %}
 
-	<input type="submit" class='btn btn-margin btn-success' value="Create Account" id="createUserBtn" disabled/>
-</form>
+    	{% if user_verified %}
+		<p>The email address has been verified.</p>
+		<input type="submit" formaction="/" formmethod="GET" class='btn btn-margin btn-success' value="Return Home"/>
+		{% endif %}
+	</form>
 </div>
 {% endblock %}
