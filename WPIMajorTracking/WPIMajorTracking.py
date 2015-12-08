@@ -151,7 +151,7 @@ class SignupHandler(BaseHandler):
       signup_token=token, _full=True)
 
     receiverString = name + " " + last_name + "<" + email + ">";
-    email_body = """Hello new user, \n\nPlease verify your account by going to this link: """ + verification_url;
+    email_body = """Hello new user,\n\nPlease verify your account by going to this link: """ + verification_url;
 
     message = mail.EmailMessage(sender="<WPI.MajorTracking@gmail.com>",
                                 subject="Account Verification")
@@ -184,7 +184,7 @@ class ForgotPasswordHandler(BaseHandler):
       signup_token=token, _full=True)
 
     receiverString = user.name + " " + user.last_name + "<" + user.email_address + ">";
-    email_body = """Hello user, \n\nPlease reset your password by going to: """ + verification_url;
+    email_body = """Hello user,\n\nPlease reset your password by going to: """ + verification_url;
 
     message = mail.EmailMessage(sender="<WPI.MajorTracking@gmail.com>",
                                 subject="Reset Password")
@@ -193,16 +193,15 @@ class ForgotPasswordHandler(BaseHandler):
     message.body = email_body
     message.send()
 
-    msg = 'Please go check your email to reset your password. \
-          FOR DEVELOPERS: go here to reset: <a href="{url}">{url}</a>'
+    self._serve_page(email_sent=True, verification_url=verification_url)
 
-    self.display_message(msg.format(url=verification_url))
-
-  def _serve_page(self, not_found=False):
+  def _serve_page(self, not_found=False, email_sent=False, verification_url=''):
     username = self.request.get('username')
     params = {
       'username': username,
-      'not_found': not_found
+      'not_found': not_found,
+      'email_sent': email_sent,
+      'verification_url': verification_url
     }
     self.render_template('forgot.html', params)
 

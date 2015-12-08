@@ -11,10 +11,17 @@
 <div class='center-block interaction-block' style='width: 50%; margin: auto;'>
   <form class="form" action= "/api/forgot" method="POST">
 
+    {% if not email_sent %}
     <div class='form-group'>
       <label for='email'>Email Address: </label>
       <input id='email' class='form-control' type="text" name="email_address"/>
     </div>
+    {% else %}
+    <div>
+      <p>Please go check your email for a link to reset your password.</p>
+      <p>FOR DEVELOPERS: go here to reset: {{ verification_url }} </p>
+    </div>
+    {% endif %}
 
     {% if not_found %}
     <div style='color: red;'>
@@ -22,7 +29,11 @@
     </div>
     {% endif %}
 
-    <input type="submit" class='btn btn-margin btn-success' value="Send password reset link"/>
+    {% if not email_sent %}
+    <input type="submit" class='btn btn-margin btn-success' value="Send Email"/>
+    {% else %}
+    <input type="submit" formaction="/api/forgot" formmethod="GET" class='btn btn-margin btn-success' value="Resend Email"/>
+    {% endif %}
 
   </form>
 </div>
