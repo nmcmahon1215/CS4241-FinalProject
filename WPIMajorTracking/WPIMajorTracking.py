@@ -267,13 +267,14 @@ class SetPasswordHandler(BaseHandler):
     # remove signup token, we don't want users to come back with an old link
     self.user_model.delete_signup_token(user.get_id(), old_token)
 
-    self.display_message('Password updated.')
+    self._serve_page(updated_password=True)
 
-  def _serve_page(self, mismatch=False):
+  def _serve_page(self, mismatch=False, updated_password=False):
     username = self.request.get('username')
     params = {
       'username': username,
-      'mismatch': mismatch
+      'mismatch': mismatch,
+      'updated_password': updated_password
     }
     self.render_template('resetpassword.html', params)
 

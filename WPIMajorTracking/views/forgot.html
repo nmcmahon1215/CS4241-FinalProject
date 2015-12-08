@@ -19,7 +19,7 @@
     {% else %}
     <div>
       <p>Please go check your email for a link to reset your password.</p>
-      <p>FOR DEVELOPERS: go here to reset: {{ verification_url }} </p>
+      <p>FOR DEVELOPERS: go here to reset: <a href="{{ verification_url }}">Reset Link</a> </p>      
     </div>
     {% endif %}
 
