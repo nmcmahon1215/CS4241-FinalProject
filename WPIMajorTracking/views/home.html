@@ -11,9 +11,9 @@
 <div id="formContainer" class='center-form'>
 	<div id='login' class='center-block interaction-block'>
 		{% if failed %}
-
+			<p class="error-message">
 		    <strong>Login failed!</strong> Check your credentials and try again.
-
+		  </p>
 		{% endif %}
 
 		<form class="form" action= "/api/login" method="POST">
