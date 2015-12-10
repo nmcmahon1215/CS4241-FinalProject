@@ -137,8 +137,7 @@ class SignupHandler(BaseHandler):
       last_name=last_name, major=major[0], verified=False)
 
     if not user_data[0]: #user_data is a tuple
-      self.display_message('Unable to create user for email %s because of \
-        duplicate keys %s' % (email, user_data[1]))
+      self._serve_page(duplicate=True, duplicateKeys=user_data[1])
       return
 
     user = user_data[1]
@@ -160,12 +159,14 @@ class SignupHandler(BaseHandler):
 
     self._serve_page(email_sent=True, verification_url=verification_url)
 
-  def _serve_page(self, email_sent=False, verification_url=''):
+  def _serve_page(self, email_sent=False, verification_url='', duplicate=False, duplicateKeys=''):
     email_address = self.request.get('email_address')
     params = {
       'email_address': email_address,
       'email_sent': email_sent,
-      'verification_url': verification_url
+      'verification_url': verification_url,
+      'duplicate': duplicate,
+      'duplicateKeys': duplicateKeys
     }
     self.render_template('signup.html', params)
 

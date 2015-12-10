@@ -36,6 +36,9 @@
 			<label for="lastname" class="required">Last Name:</label>
 			<input type="text" class='form-control' name="lastname" autocomplete="off" autocapitalize="off" autocorrect="off" id="lastName" placeholder="Last Name" required/>
 		</div>
+		{% if duplicate %}
+		<p class="error-message">Unable to create user for email {{email_address}} because of duplicate keys {{duplicateKeys}}</p>
+		{% endif %}
 		<input type="submit" class='btn btn-margin btn-success' value="Create Account" id="createUserBtn"/>
 		{% elif email_sent and not user_verified %}
 		<div>
