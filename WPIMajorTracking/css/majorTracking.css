@@ -92,3 +92,12 @@ label.required::after {
   color: red;
   font-size: 18px;
 }
+
+#emailText-error, #passwordRepeat-error, #password-error {
+  color: red;
+}
+
+.error-message {
+  color: red;
+}
+

@@ -11,7 +11,9 @@
 <div id="formContainer" class='center-form'>
 	<div id='login' class='center-block interaction-block'>
 		{% if failed %}
-		 <strong>Login failed!</strong> Check your credentials and try again.
+		<p class="error-message">
+		    <strong>Login failed!</strong> Check your credentials and try again.
+		 </p>
 		{% endif %}
 
 		{% if not user %}

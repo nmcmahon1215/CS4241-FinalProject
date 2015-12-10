@@ -338,6 +338,26 @@ config = {
   }
 }
 
+class JSHandler(BaseHandler):
+    def get(self, *args, **kwargs):
+        resultString = ""
+        jsDir = "js"
+        libsDir = "jsLibs"
+
+        for fileName in sorted(os.listdir(libsDir)):
+            resultString += getFileContents(fileName, libsDir);
+
+        for fileName in sorted(os.listdir(jsDir)):
+            resultString += getFileContents(fileName, jsDir)
+
+        self.response.content_type = 'text/javascript'
+        self.response.write(resultString)
+
+def getFileContents(fileName, directory):
+    fileDescriptor = open(os.path.join(directory, fileName))
+    return fileDescriptor.read() + "\n"
+
+
 app = webapp2.WSGIApplication([
     webapp2.Route('/', webapp2.RedirectHandler, defaults={'_uri': '/public'}, name='home'),
     webapp2.Route(r'/public<:.*>', MainHandler),
@@ -348,7 +368,8 @@ app = webapp2.WSGIApplication([
     webapp2.Route('/api/login', LoginHandler, name='login'),
     webapp2.Route('/api/forgot', ForgotPasswordHandler, name='forgot'),
     webapp2.Route('/api/logout', LogoutHandler, name='logout'),
-    webapp2.Route(r'/secured<:.*>', SecuredHandler, name='secured')
+    webapp2.Route(r'/secured<:.*>', SecuredHandler, name='secured'),
+    webapp2.Route('/js', JSHandler, name='javascript')
 ], debug=True, config=config)
 
 logging.getLogger().setLevel(logging.DEBUG)

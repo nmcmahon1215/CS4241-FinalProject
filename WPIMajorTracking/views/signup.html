@@ -4,25 +4,22 @@
 
 {% block maincontent %}
 
-<h1 class='header'>Register a new user</h1>
+<h1 class='header'>Registration Form</h1>
 <div id='login' class='center-block center-form interaction-block'>
-	<form class='form' action="/api/signup" method="POST">
+	<form id="registration-form" class='form' action="/api/signup" method="POST">
 		{% if not email_sent %}
 		<div class='form-group'>
-			<label for="email_address" class="required">Email:</label>
-			<input type="email" class='form-control' id="emailText" name="email_address" autocomplete="off" autocapitalize="off" autocorrect="off" onkeyup="validateEmail()" placeholder="example@email.com" required/>
+			<label for="email" class="required">Email:</label>
+			<input type="email" class='form-control' id="emailText" name="email" autocomplete="off" autocapitalize="off" autocorrect="off" placeholder="example@email.com" required/>
 		</div>
-
 		<div class='form-group'>
 			<label for="password" class="required" >Password:</label>
-			<input class='form-control' type="password" name="password" id="passwordText" placeholder="Password" required/>
+			<input class='form-control' type="password" name="password" id="password" placeholder="Password" required/>
 		</div>
-
 		<div class='form-group'>
-			<label for="password" class="required">Confirm Password:</label>
-			<input class='form-control' type="password" name="password" id="passwordRepeatText" placeholder="Confirm Password" required/>
+			<label for="passwordRepeat" class="required">Confirm Password:</label>
+			<input class='form-control' type="password" name="passwordRepeat" id="passwordRepeat" placeholder="Confirm Password" required/>
 		</div>
-
 		<div class='form-group'>
 			<label for="major" class="required">Major:</label>
 			<select name="major" class='form-control'>
@@ -32,14 +29,14 @@
 
 		<div class='form-group'>
 			<label for="name" class="required">First Name:</label>
-			<input type="text" class='form-control' name="name" autocomplete="off" autocapitalize="off" autocorrect="off" id="firstNameText" placeholder="First Name" required/>
+			<input type="text" class='form-control' name="name" autocomplete="off" autocapitalize="off" autocorrect="off" id="firstName" placeholder="First Name" required/>
 		</div>
 
 		<div class='form-group'>
 			<label for="lastname" class="required">Last Name:</label>
-			<input type="text" class='form-control' name="lastname" autocomplete="off" autocapitalize="off" autocorrect="off" id="lastNameText" placeholder="Last Name" required/>
+			<input type="text" class='form-control' name="lastname" autocomplete="off" autocapitalize="off" autocorrect="off" id="lastName" placeholder="Last Name" required/>
 		</div>
-		<input type="submit" class='btn btn-margin btn-success' value="Create Account" id="createUserBtn" disabled/>
+		<input type="submit" class='btn btn-margin btn-success' value="Create Account" id="createUserBtn"/>
 		{% elif email_sent and not user_verified %}
 		<div>
       		<p>Please go check your email for a link to verify your account.</p>
