@@ -5,6 +5,12 @@
     vertical-align: middle;
 }
 
+#logoutButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
 a {
   color: lightcoral;
   text-decoration: none;

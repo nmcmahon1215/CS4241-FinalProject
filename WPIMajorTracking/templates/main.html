@@ -8,6 +8,13 @@
   <script type="text/javascript" src="/js"></script>
 </head>
 <body>
+  {% if user %}
+  
+  <form method='GET' action='/api/logout'>
+    <input id='logoutButton' type='submit' class='btn' value='logout' />
+  </form>
+
+  {% endif %}
   <div class="content">
     {% block maincontent %}
 
