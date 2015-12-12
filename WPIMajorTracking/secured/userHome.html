@@ -1,7 +1,14 @@
 {% extends "templates/main.html" %}
 
-{% block maincontent %}
+{% block head %}
+
 <link rel='stylesheet' href='/css/userLanding.css'>
+
+{% endblock %}
+
+
+{% block maincontent %}
+
 <h1>
   WPI Major Tracking
 </h1>
@@ -11,4 +18,5 @@
 <div id='instructions' class='interaction-block header'>
   Select a major tracking sheet below, or create a new one.
 </div>
+
 {% endblock %}
