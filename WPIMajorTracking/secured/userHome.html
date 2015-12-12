@@ -1,0 +1,22 @@
+{% extends "templates/main.html" %}
+
+{% block head %}
+
+<link rel='stylesheet' href='/css/userLanding.css'>
+
+{% endblock %}
+
+
+{% block maincontent %}
+
+<h1>
+  WPI Major Tracking
+</h1>
+<h2>
+  Welcome {{ user.name }}
+</h2>
+<div id='instructions' class='interaction-block header'>
+  Select a major tracking sheet below, or create a new one.
+</div>
+
+{% endblock %}

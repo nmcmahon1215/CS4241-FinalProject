@@ -114,6 +114,10 @@ class BaseHandler(webapp2.RequestHandler):
 class MainHandler(BaseHandler):
   def get(self, *args, **kwargs):
     filePath = self.request.path[8:]
+
+    if self.user is not None:
+        self.redirect("/secured")
+
     if filePath == "":
         filePath = "home.html"
 
@@ -333,7 +337,7 @@ class SecuredHandler(BaseHandler):
   def get(self, *args, **kwargs):
     filePath = self.request.path[9:]
     if filePath == "":
-        filePath = "home.html"
+        filePath = "userHome.html"
 
     self.render_template(filePath, { 'directory': 'secured' })
 
@@ -350,7 +354,7 @@ config = {
 class JSHandler(BaseHandler):
     def get(self, *args, **kwargs):
         resultString = ""
-        jsDir = "js"
+        jsDir = "js/common"
         libsDir = "jsLibs"
 
         for fileName in sorted(os.listdir(libsDir)):
