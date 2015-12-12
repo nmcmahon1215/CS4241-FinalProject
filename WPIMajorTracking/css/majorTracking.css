@@ -5,18 +5,6 @@
     vertical-align: middle;
 }
 
-#watgrandma {
-	display: block;
-	width: 400px;
-	height: 600px;
-	margin: auto;
-}
-#watcontainer {
-    overflow: hidden;
-    width: 100%;
-    height: 700px;
-}
-
 a {
   color: lightcoral;
   text-decoration: none;
