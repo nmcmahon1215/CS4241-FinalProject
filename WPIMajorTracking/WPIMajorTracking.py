@@ -342,7 +342,7 @@ config = {
 class JSHandler(BaseHandler):
     def get(self, *args, **kwargs):
         resultString = ""
-        jsDir = "js"
+        jsDir = "js/common"
         libsDir = "jsLibs"
 
         for fileName in sorted(os.listdir(libsDir)):
