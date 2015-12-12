@@ -17,6 +17,7 @@ a:hover {
 
 h1 {
   font-family: 'Coda', "Arial";
+  text-align: center;
 }
 
 .errorMsg {
@@ -63,6 +64,7 @@ input {
 }
 
 body {
+  color: white;
   height: 100%;
   width: 100%;
   background-repeat: no-repeat;
