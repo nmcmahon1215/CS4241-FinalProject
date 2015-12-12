@@ -29,7 +29,7 @@ def user_required(handler):
   def check_login(self, *args, **kwargs):
     auth = self.auth
     if not auth.get_user_by_session():
-      self.redirect(self.uri_for('login'), abort=True)
+      self.redirect(self.uri_for('home'), abort=True)
     else:
       return handler(self, *args, **kwargs)
 
@@ -129,7 +129,11 @@ class SignupHandler(BaseHandler):
     password = self.request.get('password')
     last_name = self.request.get('lastname')
     major = self.request.get_all('major')
+    # resendEmail = self.request.get('resendEmail')
+    # resendVerification = self.request.get('resendVerification')
+    # logging.info("re: %s, rv: %s", resendEmail, resendVerification)
 
+    # if not resendEmail:
     unique_properties = None
     user_data = self.user_model.create_user(email,
       unique_properties,
@@ -147,6 +151,10 @@ class SignupHandler(BaseHandler):
 
     verification_url = self.uri_for('verification', type='v', user_id=user_id,
       signup_token=token, _full=True)
+
+    # if resendVerification:
+    #   logging.info("Resent Email for %s", email)
+    #   verification_url = resendVerification
 
     receiverString = name + " " + last_name + "<" + email + ">";
     email_body = """Hello new user,\n\nPlease verify your account by going to this link: """ + verification_url;
