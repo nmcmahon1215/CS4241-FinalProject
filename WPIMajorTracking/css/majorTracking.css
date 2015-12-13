@@ -98,3 +98,7 @@ label.required::after {
   color: red;
 }
 
+.content {
+  height: 100%;
+}
+
