@@ -55,7 +55,9 @@
   			<input type="hidden" name="resendEmail" value="True" />
   			<input type="hidden" name="resendVerification" value="{{ verification_url }}" />
   			<input type='submit' class='btn btn-margin btn-info' value='Resend Email'/>
-  			<input type='submit' formmethod='get' class='btn btn-margin btn-success' value='Edit Registration'/>
+  		</form>
+  		<form class='form' action='/api/signup' method='get'>
+  			<input type='submit' class='btn btn-margin btn-success' value='Edit Registration'/>
   		</form>
   		<p>FOR DEVELOPERS: go here to verify: <a href="{{ verification_url }}">Verification Link</a> </p>      
 	</div>
