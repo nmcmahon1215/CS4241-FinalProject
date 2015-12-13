@@ -1,4 +1,8 @@
 import BaseHandler
+import logging
+
+from webapp2_extras.auth import InvalidAuthIdError
+from webapp2_extras.auth import InvalidPasswordError
 
 class LoginHandler(BaseHandler.BaseHandler):
   def get(self):
