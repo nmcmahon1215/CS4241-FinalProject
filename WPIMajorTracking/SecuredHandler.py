@@ -1,5 +1,8 @@
 import BaseHandler
 import WPIMajorTracking
+import TrackingSheet
+
+from google.appengine.ext import db
 
 class SecuredHandler(BaseHandler.BaseHandler):
   @BaseHandler.user_required
@@ -8,4 +11,9 @@ class SecuredHandler(BaseHandler.BaseHandler):
     if filePath == "":
         filePath = "userHome.html"
 
-    self.render_template(filePath, { 'directory': 'secured' })
+    params = { 'directory': 'secured' }
+
+    if filePath == "userHome.html":
+        params['sheets'] = TrackingSheet.get_sheets_by_email(self.user.email_address)
+
+    self.render_template(filePath, params )
