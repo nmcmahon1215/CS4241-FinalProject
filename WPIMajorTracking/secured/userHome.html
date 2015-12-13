@@ -18,5 +18,20 @@
 <div id='instructions' class='interaction-block header'>
   Select a major tracking sheet below, or create a new one.
 </div>
+<div id='sheetList' class='interaction-block'>
+  {% for sheet in sheets %}
+  <div class='sheet'>
+    <div class='sheetIcon'>
+      <img class='sheetIcon' src='/images/file_icon.png' alt='file icon'>
+    </div>
+    <div class='sheetInfo'>
+      <strong>{{ sheet.name }}</strong>
+      <div class='date'>
+        {{ sheet.date }}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 
 {% endblock %}

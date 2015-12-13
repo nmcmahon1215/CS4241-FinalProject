@@ -2,3 +2,41 @@ body {
   background-color: #313131;
   background-image: initial;
 }
+
+#sheetList {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 50%;
+}
+
+.sheet {
+  width: 80%;
+  border: 1px solid white;
+  border-radius: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  padding: 15px;
+}
+
+.sheetIcon {
+  float: left;
+  width: 75px;
+}
+
+.sheetInfo {
+  margin-left: 25px;
+  float: left;
+  font-size: 18px;
+  transition: 1s background-color;
+}
+
+.sheet:hover {
+  background-color: rgba(115, 115, 115, 1);
+  cursor: pointer;
+}
+
+.date {
+  font-size: 10px;
+}
