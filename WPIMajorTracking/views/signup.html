@@ -50,12 +50,12 @@
 		{% else %}
 		<p>An email has been resent to {{email_address}}. Please check your email for a link to verify your account.</p>
 		{% endif %}  		
-  		<form id="testdsad" class='form' action="/api/signup" method="POST">
+  		<form class='form-inline' action="/api/signup" method="POST">
   			<input type="hidden" name="email_address" value="{{ email_address }}" />
   			<input type="hidden" name="resendEmail" value="True" />
   			<input type="hidden" name="resendVerification" value="{{ verification_url }}" />
   			<input type='submit' class='btn btn-margin btn-info' value='Resend Email'/>
-  			<!-- <input type='submit' class='btn btn-margin btn-success' value='Edit Registration'/> -->
+  			<input type='submit' formmethod='get' class='btn btn-margin btn-success' value='Edit Registration'/>
   		</form>
   		<p>FOR DEVELOPERS: go here to verify: <a href="{{ verification_url }}">Verification Link</a> </p>      
 	</div>
