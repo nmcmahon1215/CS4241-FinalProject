@@ -45,14 +45,18 @@
 	</form>
 	{% elif email_sent and not user_verified %}
 	<div>
-  		<p>An email has been sent to {{email_address}}. Please check your email for a link to verify your account.</p>
-  		<!-- <form id="testdsad" class='form' action="/api/signup" method="POST">
+		{% if not resendEmail %}
+		<p>An email has been sent to {{email_address}}. Please check your email for a link to verify your account.</p>
+		{% else %}
+		<p>An email has been resent to {{email_address}}. Please check your email for a link to verify your account.</p>
+		{% endif %}  		
+  		<form id="testdsad" class='form' action="/api/signup" method="POST">
   			<input type="hidden" name="email_address" value="{{ email_address }}" />
   			<input type="hidden" name="resendEmail" value="True" />
-  			<input type="hidden" name="resendVerification" value="{{ verifcation_url }}" />
+  			<input type="hidden" name="resendVerification" value="{{ verification_url }}" />
   			<input type='submit' class='btn btn-margin btn-info' value='Resend Email'/>
   			<!-- <input type='submit' class='btn btn-margin btn-success' value='Edit Registration'/> -->
-  		</form> -->
+  		</form>
   		<p>FOR DEVELOPERS: go here to verify: <a href="{{ verification_url }}">Verification Link</a> </p>      
 	</div>
 	{% endif %}
