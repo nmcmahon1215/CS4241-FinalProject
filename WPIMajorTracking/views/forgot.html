@@ -9,19 +9,14 @@
 </div>
 
 <div class='center-block interaction-block' style='width: 50%; margin: auto;'>
-  <form class="form" action= "/api/forgot" method="POST">
-
-    {% if not email_sent %}
+  {% if not email_sent %}
+  <form class="form" action="/api/forgot" method="POST">
     <div class='form-group'>
       <label for='email'>Email Address: </label>
       <input id='email' class='form-control' type="email" name="email_address"/>
+      <input type="hidden" name="resendEmail" value=""/>
+      <input type="hidden" name="resendForgot" value="" />
     </div>
-    {% else %}
-    <div>
-      <p>Please go check your email for a link to reset your password.</p>
-      <p>FOR DEVELOPERS: go here to reset: <a href="{{ verification_url }}">Reset Link</a> </p>  
-    </div>
-    {% endif %}
 
     {% if not_found %}
     <div style='color: red;'>
@@ -29,13 +24,24 @@
     </div>
     {% endif %}
 
-    {% if not email_sent %}
     <input type="submit" class='btn btn-margin btn-success' value="Send Email"/>
-    {% else %}
-    <input type="submit" formaction="/api/forgot" formmethod="GET" class='btn btn-margin btn-success' value="Resend Email"/>
-    {% endif %}
-
   </form>
+  {% else %}
+  <div>
+    {% if not resendEmail %}
+    <p>An email has been sent to {{email_address}}. Please check your email for a link to reset your password.</p>
+    {% else %}
+    <p>An email has been resent to {{email_address}}. Please check your email for a link to reset your password.</p>
+    {% endif %}
+    <p>FOR DEVELOPERS: go here to reset: <a href="{{ verification_url }}">Reset Link</a> </p>  
+  </div>
+  <form class="form" action="/api/forgot" method="POST">
+    <input type="hidden" name="email_address" value="{{ email_address }}" />
+    <input type="hidden" name="resendEmail" value="True"/>
+    <input type="hidden" name="resendForgot" value="{{ verification_url }}" />
+    <input type="submit" class='btn btn-margin btn-success' value="Resend Email"/>
+  </form>
+  {% endif %}
 </div>
 
 {% endblock %}
