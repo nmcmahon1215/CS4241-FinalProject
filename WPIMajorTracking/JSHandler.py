@@ -1,4 +1,5 @@
 import BaseHandler
+import os
 
 class JSHandler(BaseHandler.BaseHandler):
     def get(self, *args, **kwargs):
