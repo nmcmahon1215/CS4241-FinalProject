@@ -8,6 +8,10 @@ handlers:
 - url: /css
   static_dir: css
 
+- url: /favicon\.ico
+  static_files: images/favicon.ico
+  upload: images/favicon\.ico
+
 - url: /libs
   static_dir: libs
 
