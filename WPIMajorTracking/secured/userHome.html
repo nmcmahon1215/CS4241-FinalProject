@@ -19,6 +19,9 @@
   Select a major tracking sheet below, or create a new one.
 </div>
 <div id='sheetList' class='interaction-block'>
+  {% if not sheets|length %}
+  You don't have any tracking sheets. Create one above.
+  {% endif %}
   {% for sheet in sheets %}
   <div class='sheet'>
     <div class='sheetIcon'>

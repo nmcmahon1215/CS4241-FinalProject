@@ -9,4 +9,9 @@ class TrackingSheet(db.Model):
 def get_sheets_by_email(email):
     q = db.GqlQuery("SELECT * FROM TrackingSheet WHERE email = '" + email + "'")
 
-    return q.run()
+    result = []
+
+    for item in q.run():
+        result.append(item)
+
+    return result
