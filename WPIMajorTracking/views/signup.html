@@ -49,14 +49,14 @@
 		<p>An email has been sent to {{email_address}}. Please check your email for a link to verify your account.</p>
 		{% else %}
 		<p>An email has been resent to {{email_address}}. Please check your email for a link to verify your account.</p>
-		{% endif %}  		
-  		<form class='form-inline' action="/api/signup" method="POST">
+		{% endif %}
+  		<form class='form-inline' style='float:left' action="/api/signup" method="POST">
   			<input type="hidden" name="email_address" value="{{ email_address }}" />
   			<input type="hidden" name="resendEmail" value="True" />
   			<input type="hidden" name="resendVerification" value="{{ verification_url }}" />
   			<input type='submit' class='btn btn-margin btn-info' value='Resend Email'/>
   		</form>
-  		<form class='form' action='/api/signup' method='get'>
+  		<form class='form' style='float:right' action='/api/signup' method='get'>
   			<input type='submit' class='btn btn-margin btn-success' value='Edit Registration'/>
   		</form>
   		<p>FOR DEVELOPERS: go here to verify: <a href="{{ verification_url }}">Verification Link</a> </p>      
