@@ -1,5 +1,7 @@
 import BaseHandler
 
+import os
+
 from google.appengine.api import mail
 
 class SignupHandler(BaseHandler.BaseHandler):
@@ -51,6 +53,7 @@ class SignupHandler(BaseHandler.BaseHandler):
   def _serve_page(self, email_sent=False, verification_url='', duplicate=False, duplicateKeys='', resendEmail=''):
     email_address = self.request.get('email_address')
     params = {
+      'development_mode': os.environ['SERVER_SOFTWARE'].startswith('Development'),
       'email_address': email_address,
       'email_sent': email_sent,
       'verification_url': verification_url,
