@@ -3,7 +3,7 @@ $(document).ready(function () {
     rules: {
       email: {
         required: true,
-        email: true 
+        email: true
       },
       password: {
         required: true,
@@ -32,10 +32,8 @@ $(document).ready(function () {
         equalTo: "Please enter the same password as above"
       }
     },
-    submitHandler: function (form) { // for demo
-       //need to use a post request to handle this
-       alert("Registration form submitted!");
-       form.submit();
-     }
-   });
+    submitHandler: function (form) {
+      form.submit();
+    }
+  });
 });
