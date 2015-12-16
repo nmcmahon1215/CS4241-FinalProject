@@ -47,3 +47,12 @@ body {
 .date {
   font-size: 10px;
 }
+
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
+}
