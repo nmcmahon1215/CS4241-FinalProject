@@ -37,3 +37,14 @@ $(document).ready(function () {
     }
   });
 });
+
+/*
+ * Submits a form with the given ID after 5 seconds
+ *
+ * @param {string} id The ID of the form to submit
+ */
+function delayFormSubmission(id) {
+  setTimeout( function() {
+    $(id).submit();
+  }, 5000);
+}
