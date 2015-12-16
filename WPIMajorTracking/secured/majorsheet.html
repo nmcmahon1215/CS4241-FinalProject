@@ -1,50 +1,53 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Major Tracking Sheet</title>
-	<link href='https://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="../stylesheets/majorsheet.css">
-	<!-- Bootstrap -->
-   <link href="css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-	<div>
-	<div id="title">
-		Major Tracking Sheet
-	</div>
-	<div id="logout">
-		Log Out
-	</div>
-	<div id="whitespace">
-		stuff
-	</div>
-	<div id="username">
-		<!--GET THE USERNAME FROM DATABASE -->
-		username
-	</div>
-	</div>
+{% extends "templates/main.html" %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="/css/userLanding.css">
+{% endblock %} 
+{% block maincontent %}
+<div style="visibility: hidden;">joi</div>
 
-	<div>
-		<div>
-			Student's Name:
-		</div>
-		<div>
-			Major:
-		</div>
-		<div>
-			Class Year
-		</div>
-		<div>
-			Email:
-		</div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">COMPUTER SCIENCE</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">IQP</a></li>
+        <li><a href="#">MQP</a></li> 
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Humanities & Arts
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Depth Component</a></li>
+            <li><a href="#">Breath Component</a></li>
+            <li><a href="#">Humanities Electives</a></li> 
+          </ul>
+        </li>
+        <li><a href="#">PE</a></li> 
+        <li><a href="#">Social Science</a></li>
+        <li><a href="#">Free Electives</a></li> 
+        <li><a href="#">Computer Science</a></li> 
+        <li><a href="#">Math</a></li>
+        <li><a href="#">Science</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div id="sheetList" class="interaction-block">
+<form class="form-inline">
+	<div class="form-group">
+		<label for="advisor-name">Name</label>
+		<input type="text" class="form-control" id="advisor-name" placeholder="Advisor's Name">
+		<label for="advisor-email">Email</label>
+		<input type="text" class="form-control" id="advisor-email" placeholder="Advisor's Email">
+		<button type="submit" class="btn-margin btn btn-success">
+      <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+        Send Invitation
+    </button>
 	</div>
-	<div>
-		<div>
-			Advisor's Name:
-		</div>
-		<div>
-			Email:
-		</div>
-	</div>
-</body>
-</html>
+</form>
+</div>
+
+{% endblock %}
