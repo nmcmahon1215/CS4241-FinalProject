@@ -31,8 +31,8 @@
 				<a href="/api/forgot">Forgot your password?</a>
 			</div>
 			<div class='form-group'>
-				<button type="submit" class='btn-margin btn btn-primary'>
-					<span class='glyphicon glyphicon-lock' aria-hidden='true'></span>
+				<button type="submit" class='btn-margin btn btn-success'>
+					<span class='glyphicon glyphicon-log-in' aria-hidden='true'></span>
 					Login
 				</button>
 			</div>
@@ -43,9 +43,12 @@
 				Don't have an account?
 			</p>
 			<form action="/public/signup.html">
-				<div>
-					<input id="registerButton" type="submit" class='btn btn-margin btn-success' value="Register">
-				</div>
+				<div class='form-group'>
+				<button type="submit" class='btn-margin btn btn-primary'>
+					<span class='glyphicon glyphicon-lock' aria-hidden='true'></span>
+					Register
+				</button>
+			</div>
 			</form>
 		</div>
 		{% else %}
