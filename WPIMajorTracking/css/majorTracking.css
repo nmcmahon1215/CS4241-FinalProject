@@ -102,3 +102,8 @@ label.required::after {
   height: 100%;
 }
 
+#logoutBtn {
+  margin: 0 25px 0px 100%;
+  float: right;
+}
+
