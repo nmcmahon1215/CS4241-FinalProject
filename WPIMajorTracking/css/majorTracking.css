@@ -1,8 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Coda);
 
 #formContainer input {
-    display: inline;
-    vertical-align: middle;
+  display: inline;
+  vertical-align: middle;
 }
 
 #logoutButton {
@@ -24,15 +24,15 @@ a:hover {
 h1, h2 {
   font-family: 'Coda', "Arial";
   text-align: center;
-  margin-top: 25px;
+  margin-top: 0;
 }
 
 .errorMsg {
-    color: red;
+  color: red;
 }
 
 input {
-    display: inline-block;
+  display: inline-block;
 }
 
 .center-form {
@@ -103,7 +103,29 @@ label.required::after {
 }
 
 #logoutBtn {
-  margin: 0 25px 0px 100%;
+  margin: 25px 25px 0px 100%;
   float: right;
 }
+
+.navbar-header {
+  float: left;
+  padding: 15px;
+  text-align: center;
+  width: 100%;
+}
+
+.navbar-brand {
+  float:none;
+}
+
+.container-fluid .navbar-nav {
+    display: inline-block;
+    float: none;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
+}
+
+
 
