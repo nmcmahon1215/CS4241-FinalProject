@@ -8,6 +8,12 @@ from google.appengine.ext import db
 
 class TrackingSheetHandler(BaseHandler.BaseHandler):
 
+    def get(self, *args, **kwargs):
+        sheetId = self.request.path[19:]
+        sheet = TrackingSheet.get_sheet_by_id(sheetId)
+        
+        self.render_template('majorsheet.html', { 'directory': 'secured', 'id': sheetId, 'sheet': sheet })
+
     def post(self):
         ts = TrackingSheet.TrackingSheet(
             email=self.user.email_address,
