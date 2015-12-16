@@ -19,11 +19,18 @@
   Select a major tracking sheet below, or create a new one.
 </div>
 <div id='sheetList' class='interaction-block'>
+  <div class='toolbar'>
+    <form action='/api/trackingsheet' method='POST'>
+      <input type='text' name='sheetName' class='form-control' style='display: inline; width: auto;' placeholder="Tracking Sheet Name" />
+      <input type='submit' value='Create' class='btn btn-success' />
+    </form>
+
+  </div>
   {% if not sheets|length %}
   You don't have any tracking sheets. Create one above.
   {% endif %}
   {% for sheet in sheets %}
-  <div class='sheet'>
+  <div class='sheet' onclick='selectSheet("{{sheet.key()}}")'>
     <div class='sheetIcon'>
       <img class='sheetIcon' src='/images/file_icon.png' alt='file icon'>
     </div>

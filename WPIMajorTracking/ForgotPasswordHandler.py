@@ -29,7 +29,7 @@ class ForgotPasswordHandler(BaseHandler.BaseHandler):
       verification_url = resendForgot
 
     receiverString = user.name + " " + user.last_name + "<" + user.email_address + ">";
-    email_body = """Hello user,\n\nPlease reset your password by going to: """ + verification_url;
+    email_body = """Hello""" + user.name + """,\n\nPlease reset your password by going to: """ + verification_url;
 
     message = mail.EmailMessage(sender="<WPI.MajorTracking@gmail.com>",
                                 subject="Reset Password")

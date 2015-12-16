@@ -16,7 +16,6 @@
 		 </p>
 		{% endif %}
 
-		{% if not user %}
 		<form class="form" action= "/api/login" method="POST">
 			<div class='form-group'>
 				<label for="email_address">Email:</label>
@@ -51,11 +50,5 @@
 			</div>
 			</form>
 		</div>
-		{% else %}
-		<h2>Hello, {{user.name}}!</h2>
-		<form action="/api/logout" method="get">
-			<input class='btn btn-margin btn-danger' type='submit' value='Logout'/>
-		</form>
-		{% endif %}
 </div>
 {% endblock %}

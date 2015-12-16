@@ -7,7 +7,7 @@ body {
   width: 75%;
   margin-left: auto;
   margin-right: auto;
-  height: 50%;
+  min-height: 50%;
 }
 
 .sheet {
@@ -18,6 +18,13 @@ body {
   margin-right: auto;
   overflow: hidden;
   padding: 15px;
+  margin-bottom: 15px;
+}
+
+.toolbar {
+  margin-bottom: 15px;
+  position: relative;
+  top: 0px;
 }
 
 .sheetIcon {

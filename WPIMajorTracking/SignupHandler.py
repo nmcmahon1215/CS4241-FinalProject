@@ -40,7 +40,7 @@ class SignupHandler(BaseHandler.BaseHandler):
       verification_url = resendVerification
 
     receiverString = name + " " + last_name + "<" + email + ">";
-    email_body = """Hello new user,\n\nPlease verify your account by going to this link: """ + verification_url;
+    email_body = """Hello""" + name + """,\n\nPlease verify your account by going to this link: """ + verification_url;
 
     message = mail.EmailMessage(sender="<WPI.MajorTracking@gmail.com>",
                                 subject="Account Verification")

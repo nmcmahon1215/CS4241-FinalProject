@@ -11,6 +11,8 @@ import SecuredHandler
 import JSHandler
 import LoginHandler
 import LogoutHandler
+import TrackingSheetHandler
+import EmailHandler
 
 import logging
 import os.path
@@ -43,6 +45,8 @@ app = webapp2.WSGIApplication([
     webapp2.Route('/api/login', LoginHandler.LoginHandler, name='login'),
     webapp2.Route('/api/forgot', ForgotPasswordHandler.ForgotPasswordHandler, name='forgot'),
     webapp2.Route('/api/logout', LogoutHandler.LogoutHandler, name='logout'),
+    webapp2.Route('/api/trackingsheet', TrackingSheetHandler.TrackingSheetHandler, name='trackingsheet'),
+    webapp2.Route('/api/email', EmailHandler.EmailHandler, name='email'),
     webapp2.Route(r'/secured<:.*>', SecuredHandler.SecuredHandler, name='secured'),
     webapp2.Route('/js', JSHandler.JSHandler, name='javascript')
 ], debug=True, config=config)
