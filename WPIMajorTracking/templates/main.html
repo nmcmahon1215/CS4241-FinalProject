@@ -14,7 +14,12 @@
   {% if user %}
 
   <form method='GET' action='/api/logout'>
-    <input id='logoutButton' type='submit' class='btn' value='Logout' />
+    <div class="form-group" id="logoutBtn">
+      <button type="submit" class="btn-margin btn btn-success">
+        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+          Logout
+      </button>
+    </div>
   </form>
 
   {% endif %}
