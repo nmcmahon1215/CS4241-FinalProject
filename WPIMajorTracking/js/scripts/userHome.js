@@ -3,8 +3,9 @@ function selectSheet(id){
   window.location.href = "/api/trackingsheet/" + id;
 }
 
-function deleteSheet(id){
-  window.event.stopPropagation();
+function deleteSheet(event, id){
+  var realEvent = event || window.event;
+  realEvent.stopPropagation();
 
   var req = new XMLHttpRequest();
 
