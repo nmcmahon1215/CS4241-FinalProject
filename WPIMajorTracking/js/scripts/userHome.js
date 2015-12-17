@@ -1,6 +1,6 @@
 
 function selectSheet(id){
-  window.location.replace("/api/trackingsheet/" + id);
+  window.location.href = "/api/trackingsheet/" + id;
 }
 
 function deleteSheet(id){
