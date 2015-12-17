@@ -18,7 +18,7 @@ class TrackingSheetHandler(BaseHandler.BaseHandler):
         sheetId = self.request.path[19:]
         TrackingSheet.delete_sheet(sheetId)
 
-    def post(self):
+    def post(self, *args, **kwargs):
         ts = TrackingSheet.TrackingSheet(
             email=self.user.email_address,
             name=self.request.get("sheetName"),
