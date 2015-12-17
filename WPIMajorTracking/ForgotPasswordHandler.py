@@ -1,5 +1,6 @@
 import BaseHandler
 import logging
+import os
 
 from google.appengine.api import mail
 
@@ -43,6 +44,7 @@ class ForgotPasswordHandler(BaseHandler.BaseHandler):
   def _serve_page(self, not_found=False, email_sent=False, verification_url='', resendEmail=''):
     email_address = self.request.get('email_address')
     params = {
+      'development_mode': os.environ['SERVER_SOFTWARE'].startswith('Development'),
       'email_address': email_address,
       'not_found': not_found,
       'email_sent': email_sent,

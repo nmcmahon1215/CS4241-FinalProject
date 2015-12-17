@@ -39,14 +39,14 @@
 });
 
 /*
- * Submits a form with the given ID after 5 seconds
+ * Submits a form with the given ID after 3 seconds
  *
  * @param {string} id The ID of the form to submit
  */
 function delayFormSubmission(id) {
   setTimeout( function() {
     $(id).submit();
-  }, 5000);
+  }, 3000);
 }
 
 function emailAdvisor() {
