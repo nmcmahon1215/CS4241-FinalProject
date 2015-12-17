@@ -41,35 +41,41 @@ class TrackingSheetHandler(BaseHandler.BaseHandler):
 
             entity.iqp_title = self.request.get("iqp_title")
 
-            ctr = 0
-            condition = self.request.get("iqp_cb" + str(ctr))
+            entity.iqp_cb = []
 
-            while (condition != ""):
-                entity.iqp_cb[ctr] = condition
-                ctr = ctr + 1
-                condition = self.request.get("iqp_cb" + str(ctr))
+            for i in range(3):
+                condition = bool(self.request.get("iqp_cb" + str(i)))
+                entity.iqp_cb.append(condition)
+
 
             entity.mqp_title = self.request.get("mqp_title")
 
-            ctr = 0
-            condition = self.request.get("mqp_cb" + str(ctr))
+            entity.mqp_cb = []
 
-            while (condition != ""):
-                entity.iqp_cb[ctr] = condition
-                ctr = ctr + 1
-                condition = self.request.get("mqp_cb" + str(ctr))
+            for i in range(3):
+                condition = bool(self.request.get("mqp_cb" + str(i)))
+                entity.mqp_cb.append(condition)
 
 
-            courseList = ['hua', 'pe', 'ss', 'elective', 'cs', 'math', 'science']
 
-            for courseName in courseList:
-                ctr = 0
-                course = self.request.get(courseName + "_course" + str(ctr))
-                cb = self.request.get(courseName + "_cb" + str(ctr))
+            coursePrefix = ['hua', 'pe', 'ss', 'elective', 'cs', 'math', 'science']
+            courseLength = [6, 4, 2, 3, 15, 7, 5]
 
-                while (course != "" and cb != ""):
-                    setattr(entity, courseName + "_course" + str(ctr), course)
-                    setattr(entity, courseName + "_cb" + str(ctr), cb)
-                    ctr = ctr + 1
-                    course = self.request.get(courseName + "_course" + str(ctr))
-                    cb = self.request.get(courseName + "_cb" + str(ctr))
+            for i in range(len(coursePrefix)):
+                courseName = coursePrefix[i]
+
+                courseList = []
+                cbList = []
+
+                for j in range(courseLength[i]):
+                    course = self.request.get(courseName + "_course" + str(j))
+                    cb = bool(self.request.get(courseName + "_cb" + str(j)))
+                    courseList.append(course)
+                    cbList.append(cb)
+                    print course
+                    print courseList
+
+                setattr(entity, courseName + "_course", courseList)
+                setattr(entity, courseName + "_cb", cbList)
+
+            entity.put()
