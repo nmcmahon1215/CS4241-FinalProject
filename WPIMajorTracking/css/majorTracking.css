@@ -153,3 +153,18 @@ label.required::after {
 .autoWidth {
   width: auto;
 }
+
+.halfWidth {
+  width: 50%;
+}
+
+.btn-center {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+
+
+
+  width: 50%;
+}
