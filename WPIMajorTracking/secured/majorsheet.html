@@ -5,7 +5,7 @@
 {% endblock %} 
 
 {% block maincontent %}
-<div style="visibility: hidden;">joi</div>
+<div id="top" style="visibility: hidden;">dirty trick</div>
 
 <nav class="navbar navbar-inverse">
 	<div class="container-fluid">
@@ -272,46 +272,46 @@
 				<label><input type="checkbox" value="" name="cs_cb0"></label>
 			</div>
 			<select class="form-control inline halfWidth" name="cs_course0">
-    		<option>Operating Systems (CS 3013)</option>
-    		<option>Distributed Computing Systems (CS 4513)</option>
-    		<option>Computer Architecture (CS 4515)</option>
-    		<option>Advanced Computer Networks (CS 4516)</option>
-  		</select>
+				<option>Operating Systems (CS 3013)</option>
+				<option>Distributed Computing Systems (CS 4513)</option>
+				<option>Computer Architecture (CS 4515)</option>
+				<option>Advanced Computer Networks (CS 4516)</option>
+			</select>
 
 			<h4 id="cs-languages">Languages</h4>
 			<div class="checkbox inline">
 				<label><input type="checkbox" value="" name="cs_cb1"></label>
 			</div>
 			<select class="form-control inline halfWidth" name="cs_course1">
-    		<option>Foundations of Computer Science (CS 3133)</option>
-    		<option>Analysis of Algorithms (CS 4120)</option>
-    		<option>Theory of Computation (CS 4123)</option>
-    		<option>Techniques of Programming Language Translation (CS 4533)</option>
-    		<option>Programming Languages (CS 4536)</option>
-  		</select>
+				<option>Foundations of Computer Science (CS 3133)</option>
+				<option>Analysis of Algorithms (CS 4120)</option>
+				<option>Theory of Computation (CS 4123)</option>
+				<option>Techniques of Programming Language Translation (CS 4533)</option>
+				<option>Programming Languages (CS 4536)</option>
+			</select>
 
 			<h4 id="cs-design">Design</h4>
 			<div class="checkbox inline">
 				<label><input type="checkbox" value="" name="cs_cb2"></label>
 			</div>
 			<select class="form-control inline halfWidth" name="cs_course2">
-    		<option>Human-computer Interaction (CS 3041)</option>
-    		<option>Database Systems I (CS 3431)</option>
-    		<option>Software Engineering (CS 3733)</option>
-    		<option>Object-oriented Analysis & Design (CS 4233)</option>
-  		</select>
+				<option>Human-computer Interaction (CS 3041)</option>
+				<option>Database Systems I (CS 3431)</option>
+				<option>Software Engineering (CS 3733)</option>
+				<option>Object-oriented Analysis & Design (CS 4233)</option>
+			</select>
 
 			<h4 id="cs-social">Social Implications</h4>
 			<div class="checkbox inline">
 				<label><input type="checkbox" value="" name="cs_cb3"></label>
 			</div>
 			<select class="form-control inline halfWidth" name="cs_course3">
-    		<option>	Social Implications of Information Processing (CS 3043)</option>
-    		<option>The Society-technology Debate (STS 2208)</option>
-    		<option>Cyberlaw & Policy (GOV/ID 2314)</option>
-  		</select>
+				<option>	Social Implications of Information Processing (CS 3043)</option>
+				<option>The Society-technology Debate (STS 2208)</option>
+				<option>Cyberlaw & Policy (GOV/ID 2314)</option>
+			</select>
 
-  		<h4>Other Courses</h4>
+			<h4>Other Courses</h4>
 			<div class="checkbox inline">
 				<label><input type="checkbox" value="" name="cs_cb4"></label>
 			</div>
@@ -398,7 +398,7 @@
 				A cross-listed course may be counted toward only one of areas Computer Science, Mathematics, Basic Science and/or Engineering, above.
 			</p>
 			<p>
-				 At most four 1000-level Mathematics courses may be counted towards this requirement.
+				At most four 1000-level Mathematics courses may be counted towards this requirement.
 			</p>
 
 			<h4 id="math-prob">Probability</h4>
@@ -406,20 +406,20 @@
 				<label><input type="checkbox" value="" name="math_cb0"></label>
 			</div>
 			<select class="form-control inline halfWidth" name="math_course0">
-    		<option>	Probability For Applications (MA 2621)</option>
-    		<option>Probability (MA 2631)</option>
-  		</select>
+				<option>	Probability For Applications (MA 2621)</option>
+				<option>Probability (MA 2631)</option>
+			</select>
 
 			<h4 id="math-stats">Statistics</h4>
 			<div class="checkbox inline">
 				<label><input type="checkbox" value="" name="math_cb1"></label>
 			</div>
 			<select class="form-control inline halfWidth" name="math_course1">
-    		<option>Applied Statistics I (MA 2611)</option>
-    		<option>Applied Statistics II (MA 2612)</option>
-  		</select>
+				<option>Applied Statistics I (MA 2611)</option>
+				<option>Applied Statistics II (MA 2612)</option>
+			</select>
 
-  		<h4 id="math-other">Other Courses</h4>
+			<h4 id="math-other">Other Courses</h4>
 			<div class="checkbox inline">
 				<label><input type="checkbox" value="" name="math_cb2"></label>
 			</div>
@@ -461,7 +461,7 @@
 		<div class="majorsheet-box" id="math">
 			<h3>Basic Science & Engineering Science</h3>
 			<p>
-				 Courses satisfying the science requirement must come from the BB,BME, CE, CH, CHE, ECE, ES, GE, ME, PH, RBE disciplines . At least three courses must come from BB, CH, GE, PH, where at least two courses are from one of these disciplines.
+				Courses satisfying the science requirement must come from the BB,BME, CE, CH, CHE, ECE, ES, GE, ME, PH, RBE disciplines . At least three courses must come from BB, CH, GE, PH, where at least two courses are from one of these disciplines.
 			</p>
 			<div class="checkbox inline">
 				<label><input type="checkbox" value="" name="science_cb0"></label>
@@ -501,11 +501,21 @@
 
 		<div class="btn-center">
 			<button type="submit" class="btn-margin btn btn-success">
+				<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
 				Save
-   		</button>
-   	</div>
+			</button>
+		</div>
 
 	</form>
+
+	<div class="btn-center">
+		<a href="#top" id="btn-go-up">
+			<button class="btn-margin btn btn-success">
+				<span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span>
+			</button>
+		</a>
+	</div>
+
 
 </nav>
 

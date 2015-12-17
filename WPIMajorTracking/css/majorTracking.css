@@ -108,7 +108,7 @@ label.required::after {
 }
 
 #logoutBtn {
-  margin: 25px 25px 5px 100%;
+  margin: 25px 80px 5px 100%;
   float: right;
 }
 
@@ -165,4 +165,10 @@ label.required::after {
 .btn-center {
   text-align: center;
   padding-bottom: 20px;
+}
+
+#btn-go-up {
+  position: fixed;
+  right: 25px;
+  top: 25px;
 }
