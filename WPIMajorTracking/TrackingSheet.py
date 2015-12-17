@@ -7,10 +7,10 @@ class TrackingSheet(db.Model):
     name = db.StringProperty(required=True)
     date = db.DateTimeProperty(required=True)
 
-    iqp_title = db.StringProperty()
+    iqp_title = db.StringProperty(default='')
     iqp_cb = db.ListProperty(bool)
 
-    mqp_title = db.StringProperty()
+    mqp_title = db.StringProperty(default='')
     mqp_cb = db.ListProperty(bool)
 
     hua_cb = db.ListProperty(bool)
