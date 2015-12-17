@@ -3,6 +3,7 @@
 #formContainer input {
   display: inline;
   vertical-align: middle;
+  margin-left: 0px;
 }
 
 #logoutButton {
