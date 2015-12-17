@@ -116,6 +116,7 @@ label.required::after {
 
 .navbar-brand {
   float:none;
+  font-size: 40px;
 }
 
 .container-fluid .navbar-nav {
