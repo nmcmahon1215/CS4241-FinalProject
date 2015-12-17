@@ -50,6 +50,8 @@ function delayFormSubmission(id) {
 }
 
 function emailAdvisor() {
+  $("#advisor_name").val("");
+  $("#advisor_email").val("");
   var xhttp = new XMLHttpRequest();
   xhttp.open("POST", "/api/email", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -60,8 +62,6 @@ function emailAdvisor() {
   var query = "advisor_name=" + $("#advisor_name").val() + 
               "&advisor_email=" + $("#advisor_email").val() +
               "&sheet_id=" + $("#sheet_id").val() +
-              "&user_name=" + $("#user_name").val();
-  $("#advisor_name").val("");
-  $("#advisor_email").val("");
+              "&user_name=" + $("#user_name").val();  
   xhttp.send(query);
 }
