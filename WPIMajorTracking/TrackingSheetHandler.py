@@ -79,3 +79,4 @@ class TrackingSheetHandler(BaseHandler.BaseHandler):
                 setattr(entity, courseName + "_cb", cbList)
 
             entity.put()
+            self.redirect("/")
