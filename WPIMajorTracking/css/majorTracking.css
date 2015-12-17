@@ -108,7 +108,7 @@ label.required::after {
 }
 
 #logoutBtn {
-  margin: 25px 25px 0px 100%;
+  margin: 25px 25px 5px 100%;
   float: right;
 }
 
@@ -144,6 +144,10 @@ label.required::after {
 
 .form-control {
   margin: 10px;
+}
+
+.navbar {
+  margin-bottom: 84px;
 }
 
 .inline {
