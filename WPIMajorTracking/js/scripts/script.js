@@ -61,6 +61,7 @@ function emailAdvisor() {
               "&advisor_email=" + $("#advisor_email").val() +
               "&sheet_id=" + $("#sheet_id").val() +
               "&user_name=" + $("#user_name").val();
-
+  $("#advisor_name").val("");
+  $("#advisor_email").val("");
   xhttp.send(query);
 }
