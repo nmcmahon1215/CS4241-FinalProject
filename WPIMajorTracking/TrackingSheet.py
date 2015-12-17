@@ -28,6 +28,12 @@ class TrackingSheet(db.Model):
     cs_cb = db.ListProperty(bool)
     cs_course = db.ListProperty(str)
 
+    math_cb = db.ListProperty(bool)
+    math_course = db.ListProperty(str)
+
+    science_cb = db.ListProperty(bool)
+    science_course = db.ListProperty(str)
+
 
 def get_sheets_by_email(email):
     q = db.GqlQuery("SELECT * FROM TrackingSheet WHERE email = '" + email + "' ORDER BY date DESC")
