@@ -84,16 +84,16 @@
 			<h3>IQP</h3>
 			<div class="form-group inline">
 				<label for="advisor-name">Project Title</label>
-				<input type="text" class="form-control inline autoWidth" name="iqp_title" placeholder="Project Title">
+				<input type="text" class="form-control inline autoWidth" name="iqp_title" placeholder="Project Title" value="{{sheet.iqp_title}}">
 			</div>
 			<div class="checkbox checkbox-inline inline">
-				<label><input type="checkbox" value="False" name="iqp_cb0">1/3 Unit</label>
+				<label><input type="checkbox" value="False" name="iqp_cb0" {% if sheet.iqp_cb[0] %} checked{% endif %}>1/3 Unit</label>
 			</div>
 			<div class="checkbox checkbox-inline inline">
-				<label><input type="checkbox" value="False" name="iqp_cb1">1/3 Unit</label>
+				<label><input type="checkbox" value="False" name="iqp_cb1" {% if sheet.iqp_cb[1] %} checked{% endif %}>1/3 Unit</label>
 			</div>
 			<div class="checkbox checkbox-inline inline">
-				<label><input type="checkbox" value="False" name="iqp_cb2">1/3 Unit</label>
+				<label><input type="checkbox" value="False" name="iqp_cb2" {% if sheet.iqp_cb[2] %} checked{% endif %}>1/3 Unit</label>
 			</div>
 		</div>
 
@@ -103,16 +103,16 @@
 			<h3>MQP</h3>
 			<div class="form-group inline">
 				<label for="advisor-name">Project Title</label>
-				<input type="text" class="form-control inline autoWidth" name="mqp_title" placeholder="Project Title">
+				<input type="text" class="form-control inline autoWidth" name="mqp_title" placeholder="Project Title" value="{{sheet.mqp_title}}">
 			</div>
 			<div class="checkbox checkbox-inline inline">
-				<label><input type="checkbox" value="False" name="mqp_cb0">1/3 Unit</label>
+				<label><input type="checkbox" value="False" name="mqp_cb0" {% if sheet.mqp_cb[0] %} checked{% endif %}>1/3 Unit</label>
 			</div>
 			<div class="checkbox checkbox-inline inline">
-				<label><input type="checkbox" value="False" name="mqp_cb1">1/3 Unit</label>
+				<label><input type="checkbox" value="False" name="mqp_cb1" {% if sheet.mqp_cb[1] %} checked{% endif %}>1/3 Unit</label>
 			</div>
 			<div class="checkbox checkbox-inline inline">
-				<label><input type="checkbox" value="False" name="mqp_cb2">1/3 Unit</label>
+				<label><input type="checkbox" value="False" name="mqp_cb2" {% if sheet.mqp_cb[2] %} checked{% endif %}>1/3 Unit</label>
 			</div>
 		</div>
 
@@ -125,31 +125,31 @@
 				Students must complete at least three thematically-related courses prior to the culminating Inquiry Seminar or Practicum in the same thematic area. At least one of the three courses should be at the 2000-level or above.
 			</p>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="False" name="hua_cb0"></label>
+				<label><input type="checkbox" value="False" name="hua_cb0" {% if sheet.hua_cb[0] %} checked{% endif %}></label>
 			</div>
 			<div class="form-group inline">
-				<input type="text" class="form-control inline autoWidth" placeholder="Course 1" name="hua_course0">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 1" name="hua_course0" value="{{sheet.hua_course[0]}}">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="False" name="hua_cb1"></label>
+				<label><input type="checkbox" value="False" name="hua_cb1" {% if sheet.hua_cb[1] %} checked{% endif %}></label>
 			</div>
 			<div class="form-group inline">
-				<input type="text" class="form-control inline autoWidth" placeholder="Course 2" name="hua_course1">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 2" name="hua_course1" value="{{sheet.hua_course[1]}}">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="False" name="hua_cb2"></label>
+				<label><input type="checkbox" value="False" name="hua_cb2" {% if sheet.hua_cb[2] %} checked{% endif %}></label>
 			</div>
 			<div class="form-group inline">
-				<input type="text" class="form-control inline autoWidth" placeholder="Course 3" name="hua_course2">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 3" name="hua_course2" value="{{sheet.hua_course[2]}}">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="False" name="hua_cb3"></label>
+				<label><input type="checkbox" value="False" name="hua_cb3" {% if sheet.hua_cb[3] %} checked{% endif %}></label>
 			</div>
 			<div class="form-group inline">
-				<input type="text" class="form-control inline autoWidth" placeholder="Course 4" name="hua_course3">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 4" name="hua_course3" value="{{sheet.hua_course[3]}}">
 			</div>
 			<h4 id="hua-breath">Breath Component</h4>
 			<p>
@@ -164,18 +164,18 @@
 				Exception: May take all six courses in a foreign language
 			</p>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="False" name="hua_cb4"></label>
+				<label><input type="checkbox" value="False" name="hua_cb4" {% if sheet.hua_cb[4] %} checked{% endif %}></label>
 			</div>
 			<div class="form-group inline">
-				<input type="text" class="form-control inline autoWidth" placeholder="Course" name="hua_course4">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course" name="hua_course4" value="{{sheet.hua_course[4]}}">
 			</div>
 
 			<h4 id="hua-elective">Free Electives</h4>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="False" name="hua_cb5"></label>
+				<label><input type="checkbox" value="False" name="hua_cb5" {% if sheet.hua_cb[5] %} checked{% endif %}></label>
 			</div>
 			<div class="form-group inline">
-				<input type="text" class="form-control inline autoWidth" placeholder="Course" name="hua_course5">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course" name="hua_course5" value="{{sheet.hua_course[5]}}">
 			</div>
 		</div>
 
@@ -184,31 +184,31 @@
 		<div class="majorsheet-box" id="pe">
 			<h3>Physical Education</h3>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="False" name="pe_cb0"></label>
+				<label><input type="checkbox" value="False" name="pe_cb0" {% if sheet.pe_cb[0] %} checked{% endif %}></label>
 			</div>
 			<div class="form-group inline">
-				<input type="text" class="form-control inline autoWidth" placeholder="Course 1" name="pe_course0">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 1" name="pe_course0" value="{{sheet.pe_course[0]}}">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="False" name="pe_cb1"></label>
+				<label><input type="checkbox" value="False" name="pe_cb1" {% if sheet.pe_cb[1] %} checked{% endif %}></label>
 			</div>
 			<div class="form-group inline">
-				<input type="text" class="form-control inline autoWidth" placeholder="Course 2" name="pe_course1">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 2" name="pe_course1" value="{{sheet.pe_course[1]}}">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="False" name="pe_cb2"></label>
+				<label><input type="checkbox" value="False" name="pe_cb2" {% if sheet.pe_cb[2] %} checked{% endif %}></label>
 			</div>
 			<div class="form-group inline">
-				<input type="text" class="form-control inline autoWidth" placeholder="Course 3" name="pe_course2">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 3" name="pe_course2" value="{{sheet.pe_course[2]}}">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="False" name="pe_cb3"></label>
+				<label><input type="checkbox" value="False" name="pe_cb3" {% if sheet.pe_cb[3] %} checked{% endif %}></label>
 			</div>
 			<div class="form-group inline">
-				<input type="text" class="form-control inline autoWidth" placeholder="Course 4" name="pe_course3">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 4" name="pe_course3" value="{{sheet.pe_course[3]}}">
 			</div>
 		</div>
 
@@ -220,17 +220,17 @@
 				ECON, ENV, GOV, PSY, SD, SOC, SS, STS and ID 2050
 			</p>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="False" name="ss_cb0"></label>
+				<label><input type="checkbox" value="False" name="ss_cb0" {% if sheet.ss_cb[0] %} checked{% endif %}></label>
 			</div>
 			<div class="form-group inline">
-				<input type="text" class="form-control inline autoWidth" placeholder="Course 1" name="ss_course0">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 1" name="ss_course0" value="{{sheet.ss_course[0]}}">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="False" name="ss_cb1"></label>
+				<label><input type="checkbox" value="False" name="ss_cb1" {% if sheet.ss_cb[1] %} checked{% endif %}></label>
 			</div>
 			<div class="form-group inline">
-				<input type="text" class="form-control inline autoWidth" placeholder="Course 2" name="ss_course1">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 2" name="ss_course1" value="{{sheet.ss_course[1]}}">
 			</div>
 		</div>
 
