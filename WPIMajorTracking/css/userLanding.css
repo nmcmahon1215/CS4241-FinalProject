@@ -19,6 +19,11 @@ body {
   overflow: hidden;
   padding: 15px;
   margin-bottom: 15px;
+  height: 100px;
+}
+
+.right {
+  float:right;
 }
 
 .toolbar {

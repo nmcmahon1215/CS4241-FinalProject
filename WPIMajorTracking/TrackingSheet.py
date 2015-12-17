@@ -1,5 +1,6 @@
 
 from google.appengine.ext import db
+from google.appengine.ext.db import Key
 
 class TrackingSheet(db.Model):
     email = db.StringProperty(required=True)
@@ -15,3 +16,9 @@ def get_sheets_by_email(email):
         result.append(item)
 
     return result
+
+def get_sheet_by_id(id):
+    return db.get(Key(id))
+
+def delete_sheet(id):
+    db.delete(Key(id))
