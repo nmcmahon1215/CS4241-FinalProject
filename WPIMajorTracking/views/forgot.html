@@ -11,7 +11,7 @@
 <div class='center-block interaction-block' style='width: 50%; margin: auto;'>
   {% if not email_sent %}
   <form class="form" action="/api/forgot" method="POST">
-    <div class='form-group'>
+    <div id="formContainer" class='form-group'>
       <label for='email'>Email Address: </label>
       <input id='email' class='form-control' type="email" name="email_address"/>
       <input type="hidden" name="resendEmail" value=""/>
@@ -33,7 +33,9 @@
     {% else %}
     <p>An email has been resent to {{email_address}}. Please check your email for a link to reset your password.</p>
     {% endif %}
+    {% if development_mode %}
     <p>FOR DEVELOPERS: go here to reset: <a href="{{ verification_url }}">Reset Link</a> </p>  
+    {% endif %}
   </div>
   <form class="form" action="/api/forgot" method="POST">
     <input type="hidden" name="email_address" value="{{ email_address }}" />

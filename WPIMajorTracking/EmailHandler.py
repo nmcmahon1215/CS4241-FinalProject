@@ -13,7 +13,8 @@ class EmailHandler(BaseHandler.BaseHandler):
 		sheet_url = self.request.host_url + "/api/trackingsheet/" + sheet_id
 
 		receiverString = advisor_name + "<" + advisor_email_address + ">"
-		email_body = user_name + """ has invited you to take a look at the tracking sheet. """ + sheet_url
+		email_body = "Hello "  + advisor_name + ",\n\n" + user_name + """ has invited you to take a look 
+		at the tracking sheet. Please take a look at the link below.\n\n""" + sheet_url + """Thanks, WPI Major Tracking"""
 
 		message = mail.EmailMessage(sender="<WPI.MajorTracking@gmail.com>",
 		                            subject="Major Tracking Sheet Edit Invitation")

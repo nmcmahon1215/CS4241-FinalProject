@@ -66,9 +66,9 @@
 	{% endif %}
 	{% if user_verified %}
 	<form id='redirectVerificationForm' class='form' action='/' method='GET'>
-		<p>The email address has been verified. You will be redirected back to the home page in 5 seconds...</p>
+		<p>The email address has been verified. You will be redirected back to the home page in 3 seconds...</p>
 	</form>
-	<script> delayFormSubmission('#redirectVerificationForm') </script>
+	<script>delayFormSubmission('#redirectVerificationForm') </script>
 	{% endif %}
 </div>
 {% endblock %}
