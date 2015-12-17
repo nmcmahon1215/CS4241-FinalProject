@@ -27,6 +27,11 @@ h1, h2 {
   margin-top: 0;
 }
 
+.headerFont {
+  font-family: 'Coda', 'Arial';
+  font-size: 40px;
+}
+
 .errorMsg {
   color: red;
 }

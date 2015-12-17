@@ -31,7 +31,7 @@
   {% endif %}
   {% for sheet in sheets %}
   <div id='{{sheet.key()}}' class='sheet' onclick='selectSheet("{{sheet.key()}}")'>
-    <input type='button' class='btn btn-danger right' value='Delete' onclick='deleteSheet("{{sheet.key()}}")' />
+    <input type='button' class='btn btn-danger right' value='Delete' onclick='deleteSheet(event, "{{sheet.key()}}")' />
     <div class='sheetIcon'>
       <img class='sheetIcon' src='/images/file_icon.png' alt='file icon'>
     </div>

@@ -7,7 +7,6 @@ body {
   width: 75%;
   margin-left: auto;
   margin-right: auto;
-  min-height: 50%;
 }
 
 .sheet {
@@ -30,6 +29,9 @@ body {
   margin-bottom: 15px;
   position: relative;
   top: 0px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .sheetIcon {
