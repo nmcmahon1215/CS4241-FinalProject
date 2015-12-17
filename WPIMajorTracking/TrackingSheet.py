@@ -19,3 +19,6 @@ def get_sheets_by_email(email):
 
 def get_sheet_by_id(id):
     return db.get(Key(id))
+
+def delete_sheet(id):
+    db.delete(Key(id))

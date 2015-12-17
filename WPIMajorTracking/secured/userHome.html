@@ -30,7 +30,8 @@
   You don't have any tracking sheets. Create one above.
   {% endif %}
   {% for sheet in sheets %}
-  <div class='sheet' onclick='selectSheet("{{sheet.key()}}")'>
+  <div id='{{sheet.key()}}' class='sheet' onclick='selectSheet("{{sheet.key()}}")'>
+    <input type='button' class='btn btn-danger right' value='Delete' onclick='deleteSheet("{{sheet.key()}}")' />
     <div class='sheetIcon'>
       <img class='sheetIcon' src='/images/file_icon.png' alt='file icon'>
     </div>
