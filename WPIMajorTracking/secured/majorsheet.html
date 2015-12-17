@@ -22,7 +22,7 @@
 				<li><a href="#iqp">IQP</a></li>
 				<li><a href="#mqp">MQP</a></li> 
 				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown">Humanities & Arts
+					<a class="dropdown-toggle" data-toggle="dropdown">Humanities &amp; Arts
 						<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
@@ -67,7 +67,7 @@
 			<label for="advisor-name">Name</label>
 			<input type="text" class="form-control" id="advisor_name" name="advisor_name" placeholder="Advisor's Name">
 			<label for="advisor-email">Email</label>
-			<input type="text" class="form-control" id="advisor_email" name="advisor_email" placeholder="Advisor's Email">
+			<input type="text" class="form-control" id="advisor_email" name="advisor_email" placeholder="Advisor's Email" required>
 			<input type="hidden" name="sheet_id" id="sheet_id" value="{{ id }}"/>
 			<input type="hidden" name="user_name" id="user_name" value="{{ user.name }}"/>
 			<button type="submit" class="btn-margin btn btn-success">
@@ -79,7 +79,7 @@
 
 	<hr>
 
-	<form>
+	<form method='post'>
 		<div class="majorsheet-box" id="iqp">
 			<h3>IQP</h3>
 			<div class="form-group inline">
@@ -87,13 +87,13 @@
 				<input type="text" class="form-control inline autoWidth" name="iqp_title" placeholder="Project Title">
 			</div>
 			<div class="checkbox checkbox-inline inline">
-				<label><input type="checkbox" value="" name="iqp_cb0">1/3 Unit</label>
+				<label><input type="checkbox" value="False" name="iqp_cb0">1/3 Unit</label>
 			</div>
 			<div class="checkbox checkbox-inline inline">
-				<label><input type="checkbox" value="" name="iqp_cb1">1/3 Unit</label>
+				<label><input type="checkbox" value="False" name="iqp_cb1">1/3 Unit</label>
 			</div>
 			<div class="checkbox checkbox-inline inline">
-				<label><input type="checkbox" value="" name="iqp_cb2">1/3 Unit</label>
+				<label><input type="checkbox" value="False" name="iqp_cb2">1/3 Unit</label>
 			</div>
 		</div>
 
@@ -106,47 +106,47 @@
 				<input type="text" class="form-control inline autoWidth" name="mqp_title" placeholder="Project Title">
 			</div>
 			<div class="checkbox checkbox-inline inline">
-				<label><input type="checkbox" value="" name="mqp_cb0">1/3 Unit</label>
+				<label><input type="checkbox" value="False" name="mqp_cb0">1/3 Unit</label>
 			</div>
 			<div class="checkbox checkbox-inline inline">
-				<label><input type="checkbox" value="" name="mqp_cb1">1/3 Unit</label>
+				<label><input type="checkbox" value="False" name="mqp_cb1">1/3 Unit</label>
 			</div>
 			<div class="checkbox checkbox-inline inline">
-				<label><input type="checkbox" value="" name="mqp_cb2">1/3 Unit</label>
+				<label><input type="checkbox" value="False" name="mqp_cb2">1/3 Unit</label>
 			</div>
 		</div>
 
 		<hr>
 
 		<div class="majorsheet-box" id="hua">
-			<h3>Humanities & Arts</h3>
+			<h3>Humanities &amp; Arts</h3>
 			<h4 id="hua-depth">Depth Component</h4>
 			<p>
 				Students must complete at least three thematically-related courses prior to the culminating Inquiry Seminar or Practicum in the same thematic area. At least one of the three courses should be at the 2000-level or above.
 			</p>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="hua_cb0"></label>
+				<label><input type="checkbox" value="False" name="hua_cb0"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 1" name="hua_course0">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="hua_cb1"></label>
+				<label><input type="checkbox" value="False" name="hua_cb1"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 2" name="hua_course1">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="hua_cb2"></label>
+				<label><input type="checkbox" value="False" name="hua_cb2"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 3" name="hua_course2">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="hua_cb3"></label>
+				<label><input type="checkbox" value="False" name="hua_cb3"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 4" name="hua_course3">
@@ -164,7 +164,7 @@
 				Exception: May take all six courses in a foreign language
 			</p>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="hua_cb4"></label>
+				<label><input type="checkbox" value="False" name="hua_cb4"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course" name="hua_course4">
@@ -172,7 +172,7 @@
 
 			<h4 id="hua-elective">Free Electives</h4>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="hua_cb5"></label>
+				<label><input type="checkbox" value="False" name="hua_cb5"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course" name="hua_course5">
@@ -184,28 +184,28 @@
 		<div class="majorsheet-box" id="pe">
 			<h3>Physical Education</h3>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="pe_cb0"></label>
+				<label><input type="checkbox" value="False" name="pe_cb0"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 1" name="pe_course0">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="pe_cb1"></label>
+				<label><input type="checkbox" value="False" name="pe_cb1"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 2" name="pe_course1">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="pe_cb2"></label>
+				<label><input type="checkbox" value="False" name="pe_cb2"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 3" name="pe_course2">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="pe_cb3"></label>
+				<label><input type="checkbox" value="False" name="pe_cb3"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 4" name="pe_course3">
@@ -220,14 +220,14 @@
 				ECON, ENV, GOV, PSY, SD, SOC, SS, STS and ID 2050
 			</p>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="ss_cb0"></label>
+				<label><input type="checkbox" value="False" name="ss_cb0"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 1" name="ss_course0">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="ss_cb1"></label>
+				<label><input type="checkbox" value="False" name="ss_cb1"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 2" name="ss_course1">
@@ -239,21 +239,21 @@
 		<div class="majorsheet-box" id="free-elective">
 			<h3>Free Electives</h3>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="elective_cb0"></label>
+				<label><input type="checkbox" value="False" name="elective_cb0"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 1" name="elective_course0">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="elective_cb1"></label>
+				<label><input type="checkbox" value="False" name="elective_cb1"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 2" name="elective_course1">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="elective_cb2"></label>
+				<label><input type="checkbox" value="False" name="elective_cb2"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 3" name="elective_course2">
@@ -269,7 +269,7 @@
 			</p>
 			<h4 id="cs-systems">Systems</h4>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="cs_cb0"></label>
+				<label><input type="checkbox" value="False" name="cs_cb0"></label>
 			</div>
 			<select class="form-control inline halfWidth" name="cs_course0">
 				<option>Operating Systems (CS 3013)</option>
@@ -280,7 +280,7 @@
 
 			<h4 id="cs-languages">Languages</h4>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="cs_cb1"></label>
+				<label><input type="checkbox" value="False" name="cs_cb1"></label>
 			</div>
 			<select class="form-control inline halfWidth" name="cs_course1">
 				<option>Foundations of Computer Science (CS 3133)</option>
@@ -292,98 +292,113 @@
 
 			<h4 id="cs-design">Design</h4>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="cs_cb2"></label>
+				<label><input type="checkbox" value="False" name="cs_cb2"></label>
 			</div>
 			<select class="form-control inline halfWidth" name="cs_course2">
+<<<<<<< HEAD
 				<option>Human-computer Interaction (CS 3041)</option>
 				<option>Database Systems I (CS 3431)</option>
 				<option>Software Engineering (CS 3733)</option>
 				<option>Object-oriented Analysis & Design (CS 4233)</option>
 			</select>
+=======
+    		<option>Human-computer Interaction (CS 3041)</option>
+    		<option>Database Systems I (CS 3431)</option>
+    		<option>Software Engineering (CS 3733)</option>
+    		<option>Object-oriented Analysis &amp; Design (CS 4233)</option>
+  		</select>
+>>>>>>> e8564bfb507a384b6678c3922c78450d50a0925c
 
 			<h4 id="cs-social">Social Implications</h4>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="cs_cb3"></label>
+				<label><input type="checkbox" value="False" name="cs_cb3"></label>
 			</div>
 			<select class="form-control inline halfWidth" name="cs_course3">
+<<<<<<< HEAD
 				<option>	Social Implications of Information Processing (CS 3043)</option>
 				<option>The Society-technology Debate (STS 2208)</option>
 				<option>Cyberlaw & Policy (GOV/ID 2314)</option>
 			</select>
+=======
+    		<option>	Social Implications of Information Processing (CS 3043)</option>
+    		<option>The Society-technology Debate (STS 2208)</option>
+    		<option>Cyberlaw &amp; Policy (GOV/ID 2314)</option>
+  		</select>
+>>>>>>> e8564bfb507a384b6678c3922c78450d50a0925c
 
 			<h4>Other Courses</h4>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="cs_cb4"></label>
+				<label><input type="checkbox" value="False" name="cs_cb4"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 5" name="cs_course4">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="cs_cb5"></label>
+				<label><input type="checkbox" value="False" name="cs_cb5"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 6" name="cs_course5">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="cs_cb6"></label>
+				<label><input type="checkbox" value="False" name="cs_cb6"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 7" name="cs_course6">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="cs_cb7"></label>
+				<label><input type="checkbox" value="False" name="cs_cb7"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 8" name="cs_course7">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="cs_cb8"></label>
+				<label><input type="checkbox" value="False" name="cs_cb8"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 9" name="cs_course8">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="cs_cb9"></label>
+				<label><input type="checkbox" value="False" name="cs_cb9"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 10" name="cs_course9">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="cs_cb11"></label>
+				<label><input type="checkbox" value="False" name="cs_cb11"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 11" name="cs_course11">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="cs_cb12"></label>
+				<label><input type="checkbox" value="False" name="cs_cb12"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 12" name="cs_course12">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="cs_cb13"></label>
+				<label><input type="checkbox" value="False" name="cs_cb13"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 13" name="cs_course13">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="cs_cb14"></label>
+				<label><input type="checkbox" value="False" name="cs_cb14"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 14" name="cs_course14">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="cs_cb15"></label>
+				<label><input type="checkbox" value="False" name="cs_cb15"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 15" name="cs_course15">
@@ -403,7 +418,7 @@
 
 			<h4 id="math-prob">Probability</h4>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="math_cb0"></label>
+				<label><input type="checkbox" value="False" name="math_cb0"></label>
 			</div>
 			<select class="form-control inline halfWidth" name="math_course0">
 				<option>	Probability For Applications (MA 2621)</option>
@@ -412,7 +427,7 @@
 
 			<h4 id="math-stats">Statistics</h4>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="math_cb1"></label>
+				<label><input type="checkbox" value="False" name="math_cb1"></label>
 			</div>
 			<select class="form-control inline halfWidth" name="math_course1">
 				<option>Applied Statistics I (MA 2611)</option>
@@ -421,35 +436,35 @@
 
 			<h4 id="math-other">Other Courses</h4>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="math_cb2"></label>
+				<label><input type="checkbox" value="False" name="math_cb2"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 3" name="math_course2">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="math_cb3"></label>
+				<label><input type="checkbox" value="False" name="math_cb3"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 4" name="math_course3">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="math_cb4"></label>
+				<label><input type="checkbox" value="False" name="math_cb4"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 5" name="math_course4">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="math_cb5"></label>
+				<label><input type="checkbox" value="False" name="math_cb5"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 6" name="math_course5">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="math_cb6"></label>
+				<label><input type="checkbox" value="False" name="math_cb6"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 7" name="math_course6">
@@ -459,40 +474,40 @@
 		<hr>
 
 		<div class="majorsheet-box" id="math">
-			<h3>Basic Science & Engineering Science</h3>
+			<h3>Basic Science &amp; Engineering Science</h3>
 			<p>
 				Courses satisfying the science requirement must come from the BB,BME, CE, CH, CHE, ECE, ES, GE, ME, PH, RBE disciplines . At least three courses must come from BB, CH, GE, PH, where at least two courses are from one of these disciplines.
 			</p>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="science_cb0"></label>
+				<label><input type="checkbox" value="False" name="science_cb0"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 1" name="science_course0">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="science_cb1"></label>
+				<label><input type="checkbox" value="False" name="science_cb1"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 2" name="science_course1">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="science_cb2"></label>
+				<label><input type="checkbox" value="False" name="science_cb2"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 3" name="science_course2">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="science_cb3"></label>
+				<label><input type="checkbox" value="False" name="science_cb3"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 4" name="science_course3">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="" name="science_cb4"></label>
+				<label><input type="checkbox" value="False" name="science_cb4"></label>
 			</div>
 			<div class="form-group inline">
 				<input type="text" class="form-control inline autoWidth" placeholder="Course 5" name="science_course4">
