@@ -38,7 +38,9 @@
     <div class='sheetInfo'>
       <strong>{{ sheet.name }}</strong>
       <div class='date'>
-        {{ sheet.date }}
+        {{ sheet.date.strftime("%b %d, %Y") }}
+        <br />
+        {{ sheet.date.strftime("%I:%M %p") }}
       </div>
     </div>
   </div>
