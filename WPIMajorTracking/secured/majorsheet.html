@@ -53,270 +53,250 @@
 	</div>
 
 	<!-- <div class="interaction-block" style="margin:auto;"> -->
-		<form onsubmit="emailAdvisor(); return false;" class="form-inline" style="text-align: center;">
-			<div class="form-group">
-				<label for="advisor-name">Name</label>
-				<input type="text" class="form-control" id="advisor_name" name="advisor_name" placeholder="Advisor's Name">
-				<label for="advisor-email">Email</label>
-				<input type="text" class="form-control" id="advisor_email" name="advisor_email" placeholder="Advisor's Email">
-				<input type="hidden" name="sheet_id" id="sheet_id" value="{{ id }}"/>
-				<input type="hidden" name="user_name" id="user_name" value="{{ user.name }}"/>
-				<button type="submit" class="btn-margin btn btn-success">
-					<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-					Send Invitation
-				</button>
-			</div>
-		</form>
-
-
-	<hr>
-
-	<div class="majorsheet-box" id="iqp">
-		<h3>IQP</h3>
-		<form class="form-inline">
-			<div class="form-group">
-				<label for="advisor-name">Project Title</label>
-				<input type="text" class="form-control" id="advisor-name" placeholder="Project Title">
-			</div>
-			<div class="checkbox checkbox-inline">
-				<label><input type="checkbox" value="">1/3 Unit</label>
-			</div>
-			<div class="checkbox checkbox-inline">
-				<label><input type="checkbox" value="">1/3 Unit</label>
-			</div>
-			<div class="checkbox checkbox-inline">
-				<label><input type="checkbox" value="">1/3 Unit</label>
-			</div>
-		</form>
-	</div>
-
-	<hr>
-
-	<div class="majorsheet-box" id="mqp">
-		<h3>MQP</h3>
-		<form class="form-inline">
-			<div class="form-group">
-				<label for="advisor-name">Project Title</label>
-				<input type="text" class="form-control" id="advisor-name" placeholder="Project Title">
-			</div>
-			<div class="checkbox checkbox-inline">
-				<label><input type="checkbox" value="">1/3 Unit</label>
-			</div>
-			<div class="checkbox checkbox-inline">
-				<label><input type="checkbox" value="">1/3 Unit</label>
-			</div>
-			<div class="checkbox checkbox-inline">
-				<label><input type="checkbox" value="">1/3 Unit</label>
-			</div>
-		</form>
-	</div>
-
-	<hr>
-
-	<div class="majorsheet-box" id="hua">
-		<h3>Humanities & Arts</h3>
-		<h4 id="hua-depth">Depth Component</h4>
-		<p>
-			Students must complete at least three thematically-related courses prior to the culminating Inquiry Seminar or Practicum in the same thematic area. At least one of the three courses should be at the 2000-level or above.
-		</p>
-		<form class="form-inline">
-			<div class="checkbox">
-				<label><input type="checkbox" value=""></label>
-			</div>
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Course 1">
-			</div>
-			<br>
-			<div class="checkbox">
-				<label><input type="checkbox" value=""></label>
-			</div>
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Course 2">
-			</div>
-			<br>
-			<div class="checkbox">
-				<label><input type="checkbox" value=""></label>
-			</div>
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Course 3">
-			</div>
-			<br>
-			<div class="checkbox">
-				<label><input type="checkbox" value=""></label>
-			</div>
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Course 4">
-			</div>
-		</form>
-		<h4 id="hua-breath">Breath Component</h4>
-		<p>
-			Students must take at least one course outside the grouping in which they complete their depth component. To identify breadth, courses are grouped in the following manner.
-			<ul>
-				<li>art/art history, drama/theatre, and music (AR, EN/TH, MU)</li>
-				<li>foreign languages (SP, GN, AB, CN)</li>
-				<li>literature and writing rhetoric (EN, WR, RH)</li>
-				<li>history and international studies (HI, HU)</li>
-				<li>philosophy and religion (PY, RE)</li>
-			</ul>
-			Exception: May take all six courses in a foreign language
-		</p>
-		<form class="form-inline">
-			<div class="checkbox">
-				<label><input type="checkbox" value=""></label>
-			</div>
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Course">
-			</div>
-		</form>
-
-		<h4 id="hua-elective">Free Electives</h4>
-		<form class="form-inline">
-			<div class="checkbox">
-				<label><input type="checkbox" value=""></label>
-			</div>
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Course">
-			</div>
-		</form>
-	</div>
-
-	<hr>
-
-	<div class="majorsheet-box" id="pe">
-		<h3>Physical Education</h3>
-		<form class="form-inline">
-			<div class="checkbox">
-				<label><input type="checkbox" value=""></label>
-			</div>
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Course 1">
-			</div>
-			<br>
-			<div class="checkbox">
-				<label><input type="checkbox" value=""></label>
-			</div>
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Course 2">
-			</div>
-			<br>
-			<div class="checkbox">
-				<label><input type="checkbox" value=""></label>
-			</div>
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Course 3">
-			</div>
-			<br>
-			<div class="checkbox">
-				<label><input type="checkbox" value=""></label>
-			</div>
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Course 4">
-			</div>
-		</form>
-	</div>
-
-	<hr>
-
-	<div class="majorsheet-box" id="social-sci">
-		<h3>Social Science</h3>
-		<p>
-			ECON, ENV, GOV, PSY, SD, SOC, SS, STS and ID2050
-		</p>
-		<form class="form-inline">
-			<div class="checkbox">
-				<label><input type="checkbox" value=""></label>
-			</div>
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Course 1">
-			</div>
-			<br>
-			<div class="checkbox">
-				<label><input type="checkbox" value=""></label>
-			</div>
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Course 2">
-			</div>
-		</form>
-	</div>
-
-	<hr>
-
-	<div class="majorsheet-box" id="free-elective">
-		<h3>Free Electives</h3>
-		<form class="form-inline">
-			<div class="checkbox">
-				<label><input type="checkbox" value=""></label>
-			</div>
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Course 1">
-			</div>
-			<br>
-			<div class="checkbox">
-				<label><input type="checkbox" value=""></label>
-			</div>
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Course 2">
-			</div>
-			<br>
-			<div class="checkbox">
-				<label><input type="checkbox" value=""></label>
-			</div>
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Course 3">
-			</div>
-		</form>
-	</div>
-
-	<hr>
-
-	<div class="majorsheet-box" id="cs">
-		<h3>Computer Science</h3>
-		<p>
-			Only CS 1101, CS 1102 and computer science courses at the 2000-level or higher will count towards the computer science requirement. CS 2118 will not count towards the computer science requirement
-		</p>
-		<h4 id="cs-systems">Systems</h4>
-			<div class="dropdown">
-			<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-				Pick a Course
-				<span class="caret"></span>
+	<form onsubmit="emailAdvisor(); return false;" class="form-inline" style="text-align: center;">
+		<div class="form-group">
+			<label for="advisor-name">Name</label>
+			<input type="text" class="form-control" id="advisor_name" name="advisor_name" placeholder="Advisor's Name">
+			<label for="advisor-email">Email</label>
+			<input type="text" class="form-control" id="advisor_email" name="advisor_email" placeholder="Advisor's Email">
+			<input type="hidden" name="sheet_id" id="sheet_id" value="{{ id }}"/>
+			<input type="hidden" name="user_name" id="user_name" value="{{ user.name }}"/>
+			<button type="submit" class="btn-margin btn btn-success">
+				<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+				Send Invitation
 			</button>
-			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-				<li><a href="#">Operating Systems (CS 3013)</a></li>
-				<li><a href="#">Distributed Computing Systems (CS 4513)</a></li>
-				<li><a href="#">Computer Architecture (CS 4515)</a></li>
-				<li><a href="#">Advanced Computer Networks (CS 4516)</a></li>
-			</ul>
 		</div>
-		<h4 id="cs-languages">Languages</h4>
-		<h4 id="cs-design">Design</h4>
-		<h4 id="cs-social">Social Implications</h4>
+	</form>
 
+	<hr>
 
+	<form>
+		<div class="majorsheet-box" id="iqp">
+			<h3>IQP</h3>
+			<div class="form-group inline">
+				<label for="advisor-name">Project Title</label>
+				<input type="text" class="form-control inline autoWidth" id="advisor-name" placeholder="Project Title">
+			</div>
+			<div class="checkbox checkbox-inline inline">
+				<label><input type="checkbox" value="">1/3 Unit</label>
+			</div>
+			<div class="checkbox checkbox-inline inline">
+				<label><input type="checkbox" value="">1/3 Unit</label>
+			</div>
+			<div class="checkbox checkbox-inline inline">
+				<label><input type="checkbox" value="">1/3 Unit</label>
+			</div>
+		</div>
 
-		<form class="form-inline">
-			<div class="checkbox">
+		<hr>
+
+		<div class="majorsheet-box" id="mqp">
+			<h3>MQP</h3>
+			<div class="form-group inline">
+				<label for="advisor-name">Project Title</label>
+				<input type="text" class="form-control inline autoWidth" id="advisor-name" placeholder="Project Title">
+			</div>
+			<div class="checkbox checkbox-inline inline">
+				<label><input type="checkbox" value="">1/3 Unit</label>
+			</div>
+			<div class="checkbox checkbox-inline inline">
+				<label><input type="checkbox" value="">1/3 Unit</label>
+			</div>
+			<div class="checkbox checkbox-inline inline">
+				<label><input type="checkbox" value="">1/3 Unit</label>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="majorsheet-box" id="hua">
+			<h3>Humanities & Arts</h3>
+			<h4 id="hua-depth">Depth Component</h4>
+			<p>
+				Students must complete at least three thematically-related courses prior to the culminating Inquiry Seminar or Practicum in the same thematic area. At least one of the three courses should be at the 2000-level or above.
+			</p>
+			<div class="checkbox inline">
 				<label><input type="checkbox" value=""></label>
 			</div>
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Course 1">
+			<div class="form-group inline">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 1">
 			</div>
 			<br>
-			<div class="checkbox">
+			<div class="checkbox inline">
 				<label><input type="checkbox" value=""></label>
 			</div>
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Course 2">
+			<div class="form-group inline">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 2">
 			</div>
 			<br>
-			<div class="checkbox">
+			<div class="checkbox inline">
 				<label><input type="checkbox" value=""></label>
 			</div>
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Course 3">
+			<div class="form-group inline">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 3">
 			</div>
-		</form>
-	</div>
+			<br>
+			<div class="checkbox inline">
+				<label><input type="checkbox" value=""></label>
+			</div>
+			<div class="form-group inline">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 4">
+			</div>
+			<h4 id="hua-breath">Breath Component</h4>
+			<p>
+				Students must take at least one course outside the grouping in which they complete their depth component. To identify breadth, courses are grouped in the following manner.
+				<ul>
+					<li>art/art history, drama/theatre, and music (AR, EN/TH, MU)</li>
+					<li>foreign languages (SP, GN, AB, CN)</li>
+					<li>literature and writing rhetoric (EN, WR, RH)</li>
+					<li>history and international studies (HI, HU)</li>
+					<li>philosophy and religion (PY, RE)</li>
+				</ul>
+				Exception: May take all six courses in a foreign language
+			</p>
+			<div class="checkbox inline">
+				<label><input type="checkbox" value=""></label>
+			</div>
+			<div class="form-group inline">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course">
+			</div>
 
+			<h4 id="hua-elective">Free Electives</h4>
+			<div class="checkbox inline">
+				<label><input type="checkbox" value=""></label>
+			</div>
+			<div class="form-group inline">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course">
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="majorsheet-box" id="pe">
+			<h3>Physical Education</h3>
+			<div class="checkbox inline">
+				<label><input type="checkbox" value=""></label>
+			</div>
+			<div class="form-group inline">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 1">
+			</div>
+			<br>
+			<div class="checkbox inline">
+				<label><input type="checkbox" value=""></label>
+			</div>
+			<div class="form-group inline">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 2">
+			</div>
+			<br>
+			<div class="checkbox inline">
+				<label><input type="checkbox" value=""></label>
+			</div>
+			<div class="form-group inline">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 3">
+			</div>
+			<br>
+			<div class="checkbox inline">
+				<label><input type="checkbox" value=""></label>
+			</div>
+			<div class="form-group inline">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 4">
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="majorsheet-box" id="social-sci">
+			<h3>Social Science</h3>
+			<p>
+				ECON, ENV, GOV, PSY, SD, SOC, SS, STS and ID2050
+			</p>
+			<div class="checkbox inline">
+				<label><input type="checkbox" value=""></label>
+			</div>
+			<div class="form-group inline">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 1">
+			</div>
+			<br>
+			<div class="checkbox inline">
+				<label><input type="checkbox" value=""></label>
+			</div>
+			<div class="form-group inline">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 2">
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="majorsheet-box" id="free-elective">
+			<h3>Free Electives</h3>
+			<div class="checkbox inline">
+				<label><input type="checkbox" value=""></label>
+			</div>
+			<div class="form-group inline">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 1">
+			</div>
+			<br>
+			<div class="checkbox inline">
+				<label><input type="checkbox" value=""></label>
+			</div>
+			<div class="form-group inline">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 2">
+			</div>
+			<br>
+			<div class="checkbox inline">
+				<label><input type="checkbox" value=""></label>
+			</div>
+			<div class="form-group inline">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 3">
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="majorsheet-box" id="cs">
+			<h3>Computer Science</h3>
+			<p>
+				Only CS 1101, CS 1102 and computer science courses at the 2000-level or higher will count towards the computer science requirement. CS 2118 will not count towards the computer science requirement
+			</p>
+			<h4 id="cs-systems">Systems</h4>
+				<div class="dropdown">
+				<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					Pick a Course
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					<li><a href="#">Operating Systems (CS 3013)</a></li>
+					<li><a href="#">Distributed Computing Systems (CS 4513)</a></li>
+					<li><a href="#">Computer Architecture (CS 4515)</a></li>
+					<li><a href="#">Advanced Computer Networks (CS 4516)</a></li>
+				</ul>
+			</div>
+			<h4 id="cs-languages">Languages</h4>
+			<h4 id="cs-design">Design</h4>
+			<h4 id="cs-social">Social Implications</h4>
+			
+			<div class="checkbox inline">
+				<label><input type="checkbox" value=""></label>
+			</div>
+			<div class="form-group inline">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 1">
+			</div>
+			<br>
+			<div class="checkbox inline">
+				<label><input type="checkbox" value=""></label>
+			</div>
+			<div class="form-group inline">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 2">
+			</div>
+			<br>
+			<div class="checkbox inline">
+				<label><input type="checkbox" value=""></label>
+			</div>
+			<div class="form-group inline">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 3">
+			</div>
+		</div>
+	</form>
 
 </nav>
 

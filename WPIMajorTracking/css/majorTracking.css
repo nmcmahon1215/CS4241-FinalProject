@@ -145,3 +145,11 @@ label.required::after {
 .form-control {
   margin: 10px;
 }
+
+.inline {
+  display: inline;
+}
+
+.autoWidth {
+  width: auto;
+}
