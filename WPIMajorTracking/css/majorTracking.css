@@ -108,7 +108,7 @@ label.required::after {
 }
 
 #logoutBtn {
-  margin: 25px 25px 0px 100%;
+  margin: 25px 25px 5px 100%;
   float: right;
 }
 
@@ -146,6 +146,10 @@ label.required::after {
   margin: 10px;
 }
 
+.navbar {
+  margin-bottom: 84px;
+}
+
 .inline {
   display: inline;
 }
@@ -161,10 +165,4 @@ label.required::after {
 .btn-center {
   text-align: center;
   padding-bottom: 20px;
-}
-
-
-
-
-  width: 50%;
 }
