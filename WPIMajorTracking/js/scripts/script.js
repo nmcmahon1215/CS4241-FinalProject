@@ -1,6 +1,6 @@
-$(document).ready(function () {
-  $('#registration-form').validate({ // initialize the plugin
-    rules: {
+  $(document).ready(function () {
+    $('#registration-form').validate({ // initialize the plugin
+      rules: {
       email: {
         required: true,
         email: true
@@ -47,4 +47,20 @@ function delayFormSubmission(id) {
   setTimeout( function() {
     $(id).submit();
   }, 5000);
+}
+
+function emailAdvisor() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("POST", "/api/email", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+  xhttp.onload = function () {
+    
+  }
+  var query = "advisor_name=" + $("#advisor_name").val() + 
+              "&advisor_email=" + $("#advisor_email").val() +
+              "&sheet_id=" + $("#sheet_id").val() +
+              "&user_name=" + $("#user_name").val();
+
+  xhttp.send(query);
 }

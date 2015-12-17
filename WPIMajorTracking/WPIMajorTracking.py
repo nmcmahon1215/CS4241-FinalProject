@@ -45,10 +45,12 @@ app = webapp2.WSGIApplication([
     webapp2.Route('/api/login', LoginHandler.LoginHandler, name='login'),
     webapp2.Route('/api/forgot', ForgotPasswordHandler.ForgotPasswordHandler, name='forgot'),
     webapp2.Route('/api/logout', LogoutHandler.LogoutHandler, name='logout'),
-    webapp2.Route(r'/api/trackingsheet<:.*>', TrackingSheetHandler.TrackingSheetHandler, name='trackingsheet'),
+    webapp2.Route(r'/api/trackingsheet/<sheet_id:.*>', TrackingSheetHandler.TrackingSheetHandler, name='trackingsheet'),
     webapp2.Route('/api/email', EmailHandler.EmailHandler, name='email'),
     webapp2.Route(r'/secured<:.*>', SecuredHandler.SecuredHandler, name='secured'),
     webapp2.Route('/js', JSHandler.JSHandler, name='javascript')
 ], debug=True, config=config)
 
 logging.getLogger().setLevel(logging.DEBUG)
+
+# http://localhost:8080/api/v/5207287069147136-KRygINBaalpzkbtwHBzFeL

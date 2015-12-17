@@ -1,7 +1,9 @@
 {% extends "templates/main.html" %}
 {% block head %}
 <link rel="stylesheet" type="text/css" href="/css/userLanding.css">
-{% endblock %}
+<script type='text/javascript' src='/js/script.js'></script>
+{% endblock %} 
+
 {% block maincontent %}
 <div style="visibility: hidden;">joi</div>
 
@@ -39,12 +41,14 @@
 		</div>
 
 		<!-- <div class="interaction-block" style="margin:auto;"> -->
-		<form class="form-inline" style="text-align: center;">
+		<form onsubmit="emailAdvisor(); return false;" class="form-inline" style="text-align: center;">
 			<div class="form-group">
 				<label for="advisor-name">Name</label>
-				<input type="text" class="form-control" id="advisor-name" placeholder="Advisor's Name">
+				<input type="text" class="form-control" id="advisor_name" name="advisor_name" placeholder="Advisor's Name">
 				<label for="advisor-email">Email</label>
-				<input type="text" class="form-control" id="advisor-email" placeholder="Advisor's Email">
+				<input type="text" class="form-control" id="advisor_email" name="advisor_email" placeholder="Advisor's Email">
+				<input type="hidden" name="sheet_id" id="sheet_id" value="{{ id }}"/>
+				<input type="hidden" name="user_name" id="user_name" value="{{ user.name }}"/>
 				<button type="submit" class="btn-margin btn btn-success">
 					<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
 					Send Invitation
@@ -53,10 +57,4 @@
 		</form>
 	</div>
 	</nav>
-
-
-
-
-
-
 	{% endblock %}
