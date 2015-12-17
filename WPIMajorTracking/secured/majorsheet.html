@@ -239,24 +239,24 @@
 		<div class="majorsheet-box" id="free-elective">
 			<h3>Free Electives</h3>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="False" name="elective_cb0"></label>
+				<label><input type="checkbox" value="False" name="elective_cb0" {% if sheet.elective_cb[0] %} checked{% endif %}></label>
 			</div>
 			<div class="form-group inline">
-				<input type="text" class="form-control inline autoWidth" placeholder="Course 1" name="elective_course0">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 1" name="elective_course0" value="{{sheet.elective_course[0]}}">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="False" name="elective_cb1"></label>
+				<label><input type="checkbox" value="False" name="elective_cb1" {% if sheet.elective_cb[1] %} checked{% endif %}></label>
 			</div>
 			<div class="form-group inline">
-				<input type="text" class="form-control inline autoWidth" placeholder="Course 2" name="elective_course1">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 2" name="elective_course1" value="{{sheet.elective_course[1]}}">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="False" name="elective_cb2"></label>
+				<label><input type="checkbox" value="False" name="elective_cb2" {% if sheet.elective_cb[2] %} checked{% endif %}></label>
 			</div>
 			<div class="form-group inline">
-				<input type="text" class="form-control inline autoWidth" placeholder="Course 3" name="elective_course2">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 3" name="elective_course2" value="{{sheet.elective_course[2]}}">
 			</div>
 		</div>
 
@@ -295,36 +295,22 @@
 				<label><input type="checkbox" value="False" name="cs_cb2"></label>
 			</div>
 			<select class="form-control inline halfWidth" name="cs_course2">
-<<<<<<< HEAD
-				<option>Human-computer Interaction (CS 3041)</option>
-				<option>Database Systems I (CS 3431)</option>
-				<option>Software Engineering (CS 3733)</option>
-				<option>Object-oriented Analysis & Design (CS 4233)</option>
-			</select>
-=======
     		<option>Human-computer Interaction (CS 3041)</option>
     		<option>Database Systems I (CS 3431)</option>
     		<option>Software Engineering (CS 3733)</option>
     		<option>Object-oriented Analysis &amp; Design (CS 4233)</option>
   		</select>
->>>>>>> e8564bfb507a384b6678c3922c78450d50a0925c
 
 			<h4 id="cs-social">Social Implications</h4>
 			<div class="checkbox inline">
 				<label><input type="checkbox" value="False" name="cs_cb3"></label>
 			</div>
 			<select class="form-control inline halfWidth" name="cs_course3">
-<<<<<<< HEAD
-				<option>	Social Implications of Information Processing (CS 3043)</option>
-				<option>The Society-technology Debate (STS 2208)</option>
-				<option>Cyberlaw & Policy (GOV/ID 2314)</option>
-			</select>
-=======
+
     		<option>	Social Implications of Information Processing (CS 3043)</option>
     		<option>The Society-technology Debate (STS 2208)</option>
     		<option>Cyberlaw &amp; Policy (GOV/ID 2314)</option>
   		</select>
->>>>>>> e8564bfb507a384b6678c3922c78450d50a0925c
 
 			<h4>Other Courses</h4>
 			<div class="checkbox inline">
@@ -418,56 +404,56 @@
 
 			<h4 id="math-prob">Probability</h4>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="False" name="math_cb0"></label>
+				<label><input type="checkbox" value="False" name="math_cb0" {% if sheet.math_cb[0] %} checked{% endif %}></label>
 			</div>
 			<select class="form-control inline halfWidth" name="math_course0">
-				<option>	Probability For Applications (MA 2621)</option>
-				<option>Probability (MA 2631)</option>
+				<option {% if math_course[0] == "Probability For Applications (MA 2621)" %} selected {% endif %}>	Probability For Applications (MA 2621)</option>
+				<option {% if math_course[1] == "Probability (MA 2631)" %} selected {% endif %}>Probability (MA 2631)</option>
 			</select>
 
 			<h4 id="math-stats">Statistics</h4>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="False" name="math_cb1"></label>
+				<label><input type="checkbox" value="False" name="math_cb1" {% if sheet.math_cb[1] %} checked{% endif %}></label>
 			</div>
 			<select class="form-control inline halfWidth" name="math_course1">
-				<option>Applied Statistics I (MA 2611)</option>
-				<option>Applied Statistics II (MA 2612)</option>
+				<option {% if math_course[1] == "Applied Statistics I (MA 2611)" %} selected {% endif %}>Applied Statistics I (MA 2611)</option>
+				<option {% if math_course[1] == "Applied Statistics II (MA 2612)" %} selected {% endif %}>Applied Statistics II (MA 2612)</option>
 			</select>
 
 			<h4 id="math-other">Other Courses</h4>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="False" name="math_cb2"></label>
+				<label><input type="checkbox" value="False" name="math_cb2" {% if sheet.math_cb[2] %} checked{% endif %}></label>
 			</div>
 			<div class="form-group inline">
-				<input type="text" class="form-control inline autoWidth" placeholder="Course 3" name="math_course2">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 3" name="math_course2" value="{{sheet.math_course[2]}}">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="False" name="math_cb3"></label>
+				<label><input type="checkbox" value="False" name="math_cb3" {% if sheet.math_cb[3] %} checked{% endif %}></label>
 			</div>
 			<div class="form-group inline">
-				<input type="text" class="form-control inline autoWidth" placeholder="Course 4" name="math_course3">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 4" name="math_course3" value="{{sheet.math_course[3]}}">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="False" name="math_cb4"></label>
+				<label><input type="checkbox" value="False" name="math_cb4" {% if sheet.math_cb[4] %} checked{% endif %}></label>
 			</div>
 			<div class="form-group inline">
-				<input type="text" class="form-control inline autoWidth" placeholder="Course 5" name="math_course4">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 5" name="math_course4" value="{{sheet.math_course[4]}}">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="False" name="math_cb5"></label>
+				<label><input type="checkbox" value="False" name="math_cb5" {% if sheet.math_cb[5] %} checked{% endif %}></label>
 			</div>
 			<div class="form-group inline">
-				<input type="text" class="form-control inline autoWidth" placeholder="Course 6" name="math_course5">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 6" name="math_course5" value="{{sheet.math_course[5]}}">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="False" name="math_cb6"></label>
+				<label><input type="checkbox" value="False" name="math_cb6" {% if sheet.math_cb[6] %} checked{% endif %}></label>
 			</div>
 			<div class="form-group inline">
-				<input type="text" class="form-control inline autoWidth" placeholder="Course 7" name="math_course6">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 7" name="math_course6" value="{{sheet.math_course[6]}}">
 			</div>
 		</div>
 
@@ -479,38 +465,38 @@
 				Courses satisfying the science requirement must come from the BB,BME, CE, CH, CHE, ECE, ES, GE, ME, PH, RBE disciplines . At least three courses must come from BB, CH, GE, PH, where at least two courses are from one of these disciplines.
 			</p>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="False" name="science_cb0"></label>
+				<label><input type="checkbox" value="False" name="science_cb0" {% if sheet.science_cb[0] %} checked{% endif %}></label>
 			</div>
 			<div class="form-group inline">
-				<input type="text" class="form-control inline autoWidth" placeholder="Course 1" name="science_course0">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 1" name="science_course0" value="{{sheet.science_course[0]}}">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="False" name="science_cb1"></label>
+				<label><input type="checkbox" value="False" name="science_cb1" {% if sheet.science_cb[1] %} checked{% endif %}></label>
 			</div>
 			<div class="form-group inline">
-				<input type="text" class="form-control inline autoWidth" placeholder="Course 2" name="science_course1">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 2" name="science_course1" value="{{sheet.science_course[1]}}">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="False" name="science_cb2"></label>
+				<label><input type="checkbox" value="False" name="science_cb2" {% if sheet.science_cb[2] %} checked{% endif %}></label>
 			</div>
 			<div class="form-group inline">
-				<input type="text" class="form-control inline autoWidth" placeholder="Course 3" name="science_course2">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 3" name="science_course2" value="{{sheet.science_course[2]}}">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="False" name="science_cb3"></label>
+				<label><input type="checkbox" value="False" name="science_cb3" {% if sheet.science_cb[3] %} checked{% endif %}></label>
 			</div>
 			<div class="form-group inline">
-				<input type="text" class="form-control inline autoWidth" placeholder="Course 4" name="science_course3">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 4" name="science_course3" value="{{sheet.science_course[3]}}">
 			</div>
 			<br>
 			<div class="checkbox inline">
-				<label><input type="checkbox" value="False" name="science_cb4"></label>
+				<label><input type="checkbox" value="False" name="science_cb4" {% if sheet.science_cb[4] %} checked{% endif %}></label>
 			</div>
 			<div class="form-group inline">
-				<input type="text" class="form-control inline autoWidth" placeholder="Course 5" name="science_course4">
+				<input type="text" class="form-control inline autoWidth" placeholder="Course 5" name="science_course4" value="{{sheet.science_course[4]}}">
 			</div>
 		</div>
 
