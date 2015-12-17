@@ -10,10 +10,10 @@ class EmailHandler(BaseHandler.BaseHandler):
 		user_name = self.request.get('user_name')
 		sheet_id = self.request.get('sheet_id')
 
-		verification_url = self.uri_for('trackingsheet', sheet_id=sheet_id, _full=True)
+		sheet_url = self.request.host_url + "/api/trackingsheet/" + sheet_id
 
 		receiverString = advisor_name + "<" + advisor_email_address + ">"
-		email_body = user_name + """ has invited you to take a look at the tracking sheet. """ + verification_url
+		email_body = user_name + """ has invited you to take a look at the tracking sheet. """ + sheet_url
 
 		message = mail.EmailMessage(sender="<WPI.MajorTracking@gmail.com>",
 		                            subject="Major Tracking Sheet Edit Invitation")
@@ -21,4 +21,3 @@ class EmailHandler(BaseHandler.BaseHandler):
 		message.to = receiverString
 		message.body = email_body
 		message.send()
-		logging.info(verification_url)
